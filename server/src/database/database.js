@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const uri =
-    'mmongodb+srv://gestionadmin:G3st10nD1n3r0@gestiondinero.kvajf.mongodb.net/directorio_emprendedores?retryWrites=true&w=majority';
+    'mmongodb+srv://gestionadmin:G3st10nD1n3r0@gestiondinero.kvajf.mongodb.net/servicios_locales?retryWrites=true&w=majority';
 
 const options = {useNewUrlParser: true, useUnifiedTopology: true};
 

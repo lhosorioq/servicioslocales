@@ -8,11 +8,10 @@ export async function verifyToken (req, res, next) {
 
         // Decodificando token
         const decoded = await jwt.verify(token, config.secret);
-        
-        // Se guarda el token en el objeto request usado en las ruta
-        req.uderId = decoded.id
-        next();
 
+        // Se guarda el token en el objeto request usado en las ruta
+        req.userId = decoded.id; // req.uderId = decoded.id
+        next();
     } catch (error) {
         res.status(401).json({
             aut: false,
