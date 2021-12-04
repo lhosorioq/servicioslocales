@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import config from '../config';
 import path from 'path';
 
+import { Categorias, Departamentos, Ciudades } from '../lib/search.lib'
+
 
 //Crear Usuario
 export const createUsuario = async (req, res) => {
@@ -274,6 +276,11 @@ export const logoutUsuario = async (req, res) => {
     res.status(200).send({ auth: false, token: null });
 };
 
+
+// Exportar lib
+export const libs = (req, res) => {
+    res.status(200).send({ Categorias, Ciudades, Departamentos})
+}
 
 // // Consultar todos los proveedores
 // export const getProveedoresAll = async (req, res) => {
