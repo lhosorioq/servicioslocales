@@ -4,6 +4,10 @@ import Navbar from './components/navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import RegistroProveedoresView from './views/RegistroProveedoresView';
+import LoginProveedorView from './views/LoginProveedorView'
+import LoginClienteView from './views/LoginClienteView'
+import LoginAdminView from './views/LoginAdminView'
+import DataAdminView from './views/DataAdminView'
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
@@ -29,8 +33,14 @@ function App() {
                 <Route path="/equipo" exact>
                     <EquipoViews />
                 </Route>
-                <Route path="/login" exact>
-                    {/* <LoginEmprendedorView /> */}
+                <Route path="/login-empresa" exact>
+                    <LoginProveedorView />
+                </Route>
+                <Route path="/login-cliente" exact>
+                    <LoginClienteView />
+                </Route>
+                <Route path="/login-admin" exact>
+                    <LoginAdminView />
                 </Route>
                 <RoutePrivate path="/emprendedor" exact>
                     {/* <DataEmprendedorView /> */}
@@ -41,11 +51,8 @@ function App() {
                 <Route path="/registro-cliente" exact>
                     <RegistroClientesView />
                 </Route>
-                <Route path="/admin" exact>
-                    {/* <LoginAdminView /> */}
-                </Route>
                 <RoutePrivate path="/admin/data" exact>
-                    {/* <DataAdminView /> */}
+                    <DataAdminView />
                 </RoutePrivate>
                 <RoutePrivate path="/logout" exact></RoutePrivate>
             </Switch>

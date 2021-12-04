@@ -11,84 +11,31 @@ import {
     Container,
     FormControl,
     InputGroup,
-    FormCheck,
-    Modal,
-    ModalBody,
-    Card,
-    CardImg,
 } from 'react-bootstrap';
 import * as Yup from 'yup';
-import Icon from '.././Icons/Icons';
+import Icon from '../Icons/Icons';
 import InputFiles from 'react-input-files';
-import { Departamentos, Ciudades } from '../../libs/search.lib';
-import { URL } from '../../libs/url';
+import { Categorias, Departamentos, Ciudades } from '../../libs/search.lib';
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
     nombre: Yup.string()
         .min(2, 'Nombre muy corto!')
-        .max(40, 'Nombre muy largo!')
-        .required('Campo Requerido'),
-    email: Yup.string().email('Invalid email').required('Campo Requerido'),
+        .max(40, 'Nombre muy largo!'),
+    mail: Yup.string().email('Invalid email'),
     telefono: Yup.number()
         .min(0, 'Numero muy corto!')
-        .max(9999999999999, 'Numero muy largo!')
-        .required('Campo Requerido'),
+        .max(9999999999999, 'Numero muy largo!'),
     password: Yup.string()
         .min(8, 'Constraseña muy corta!')
-        .max(20, 'Contraseña muy larga!')
-        .required('Campo Requerido'),
+        .max(20, 'Contraseña muy larga!'),
+    actividad: Yup.string(),
     direccion: Yup.string()
         .min(3, 'Direccion muy corta!')
-        .max(40, 'Direccion muy largo!')
-        .required('Campo Requerido'),
+        .max(40, 'Direccion muy largo!'),
+    msg_description: Yup.string()
+        .min(10, 'Mensaje muy corto!')
+        .max(500, 'Mensaje muy largo!'),
 });
-
-const carga = async (values, file, departamento, ciudad) => {
-    const { nombre, telefono, email, password, direccion } = values;
-    console.log(file)
-
-    const data = new FormData();
-    data.append('avatar', file);
-    data.append('nombre', nombre);
-    data.append('telefono', telefono);
-    data.append('email', email);
-    data.append('password', password);
-    data.append('direccion', direccion);
-    data.append('departamento', departamento);
-    data.append('ciudad', ciudad);
-
-    await Axios.post('user/create', data)
-        .then((response) => {
-            const auth = response.data.auth;
-            if (!auth) {
-                Swal.fire({
-                    icon: 'error',
-                    title: response.data.mensaje,
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
-            } else {
-                console.log(response);
-                const token = response.data.token;
-                const id = response.data.id;
-                sessionStorage.setItem('token', token);
-                sessionStorage.setItem('id', id);
-                sessionStorage.setItem('rol', 'user')
-                window.location.href = '/cliente'; //pendiente ruta de pagina a la que pasara despues de login
-
-                Swal.fire({
-                    icon: 'success',
-                    title: response.data.mensaje,
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    return 'emprendedores';
-};
 
 // Creacion de options para selects
 const options = (item, i) => (
@@ -97,46 +44,98 @@ const options = (item, i) => (
     </option>
 );
 
-export const RegistroClientComp = () => {
+const DataEmprendedorComp = (props) => {
+    const { emprendedor, loadEmprendedor, url } = props;
     const [file, setFile] = useState({ name: '' });
-    const [departamento, setDepartamento] = useState('Departamentos');
-    const [ciudad, setCiudad] = useState('Ciudades');
-    const [show, setShow] = useState(false);
+    const [departamento, setDepartamento] = useState(emprendedor.departamento);
+    const [ciudad, setCiudad] = useState(emprendedor.ciudad);
 
-    // Close modal
-    const handleClose = () => {
-        setShow(false);
+    const carga = async (values) => {
+        const {
+            nombre,
+            telefono,
+            mail,
+            password,
+            actividad,
+            direccion,
+            msg_description,
+        } = values;
+
+        const data = new FormData();
+        data.append('img', file);
+        data.append('nombre', nombre);
+        data.append('telefono', telefono);
+        data.append('mail', mail);
+        data.append('password', password);
+        data.append('actividad', actividad);
+        data.append('direccion', direccion);
+        data.append('msg_description', msg_description);
+        data.append('departamento', departamento);
+        data.append('ciudad', ciudad);
+
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+        const id = emprendedor._id;
+
+        await Axios.put(`/emprendedor/update/${id}`, data, {
+            headers: { Authorization: token },
+        })
+            .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+
+                    loadEmprendedor();
+                    url();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        return 'emprendedores';
     };
 
     return (
         <Container>
             <Formik
                 initialValues={{
-                    nombre: '',
-                    email: '',
-                    telefono: '',
+                    nombre: emprendedor.nombre,
+                    mail: emprendedor.mail,
+                    telefono: emprendedor.telefono,
                     password: '',
-                    direccion: '',
-                    terms: false,
+                    actividad: emprendedor.actividad,
+                    direccion: emprendedor.direccion,
+                    msg_description: emprendedor.msg_description,
                 }}
                 validationSchema={DisplayingErrorMessagesSchema}
-                onSubmit={(values) => carga(values, file, departamento, ciudad)}
+                onSubmit={(values) => carga(values)}
             >
                 {({ errors, touched }) => (
                     <Form>
                         <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form1"
                                 className="position-relative"
                             >
-                                <FormLabel>Nombres</FormLabel>
+                                <FormLabel>Nombre - Razon Social</FormLabel>
                                 <Field
                                     name="nombre"
                                     className="form-control"
                                     type="text"
-                                    placeholder="Ingrese nombre"
+                                    placeholder="Ingrese nombre o la razon social"
                                 />
                                 {touched.nombre && errors.nombre && (
                                     <div>{errors.nombre}</div>
@@ -144,24 +143,26 @@ export const RegistroClientComp = () => {
                             </FormGroup>
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form2"
                                 className="position-relative"
                             >
                                 <FormLabel>Correo electronico</FormLabel>
                                 <Field
-                                    name="email"
+                                    name="mail"
                                     className="form-control"
                                     type="text"
                                     placeholder="Ingrese correo electronico"
                                 />
-                                {touched.email && errors.email && (
-                                    <div>{errors.email}</div>
+                                {touched.mail && errors.mail && (
+                                    <div>{errors.mail}</div>
                                 )}
                             </FormGroup>
+                        </Row>
+                        <Row>
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form3"
                                 className="position-relative"
                             >
@@ -176,11 +177,9 @@ export const RegistroClientComp = () => {
                                     <div>{errors.telefono}</div>
                                 )}
                             </FormGroup>
-                        </Row>
-                        <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form4"
                                 className="position-relative"
                             >
@@ -195,9 +194,11 @@ export const RegistroClientComp = () => {
                                     <div>{errors.password}</div>
                                 )}
                             </FormGroup>
+                        </Row>
+                        <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form5"
                                 className="position-relative"
                                 required
@@ -209,6 +210,7 @@ export const RegistroClientComp = () => {
                                     className="form-control"
                                     type="text"
                                     placeholder="Departamentos"
+                                    defaultValue={departamento.toUpperCase()}
                                     onChange={(e) =>
                                         setDepartamento(e.target.value)
                                     }
@@ -226,7 +228,7 @@ export const RegistroClientComp = () => {
                             </FormGroup>
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form6"
                                 className="position-relative"
                                 required
@@ -238,10 +240,13 @@ export const RegistroClientComp = () => {
                                     className="form-control"
                                     type="text"
                                     placeholder="Ciudades"
+                                    defaultValue={ciudad.toUpperCase()}
                                     onChange={(e) => setCiudad(e.target.value)}
                                 >
                                     {Ciudades[
-                                        Departamentos.indexOf(departamento)
+                                        Departamentos.indexOf(
+                                            departamento.toUpperCase()
+                                        )
                                     ].map((item, i) => options(item, i))}
                                 </Field>
                                 {touched.ciudad && errors.ciudad && (
@@ -252,7 +257,7 @@ export const RegistroClientComp = () => {
                         <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
                                 controlId="form7"
                                 className="position-relative"
                             >
@@ -269,14 +274,38 @@ export const RegistroClientComp = () => {
                             </FormGroup>
                             <FormGroup
                                 as={Col}
-                                md="4"
+                                md="6"
+                                controlId="form8"
+                                className="position-relative"
+                            >
+                                <FormLabel>Actividad</FormLabel>
+                                <Field
+                                    as="select"
+                                    name="actividad"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Categorias"
+                                >
+                                    {Categorias.map((item, i) =>
+                                        options(item, i)
+                                    )}
+                                </Field>
+                                {touched.actividad && errors.actividad && (
+                                    <div>{errors.actividad}</div>
+                                )}
+                            </FormGroup>
+                        </Row>
+                        <Row>
+                            <FormGroup
+                                as={Col}
+                                md="12"
                                 controlId="form9"
                                 className="position-relative"
                                 required
                             >
                                 {' '}
                                 <FormLabel>
-                                    Ingrese una imagen de perfil
+                                    Ingrese una imagen corporativa
                                 </FormLabel>
                                 <div>
                                     <InputFiles
@@ -301,28 +330,28 @@ export const RegistroClientComp = () => {
                         <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="4"
-                                controlId="form11"
+                                md="12"
+                                controlId="form10"
                                 className="position-relative"
                             >
-                                <FormCheck
-                                    name="terms"
-                                    label="Aceptar terminos y condiciones"
-                                    required
-                                    feedbackType="invalid"
-                                    feedbackTooltip
+                                <FormLabel>
+                                    Mensaje Descriptivo o Slogan
+                                </FormLabel>
+                                <Field
+                                    as="textarea"
+                                    rows={3}
+                                    name="msg_description"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Ingrese un mensaje descriptivo o slogan"
                                 />
+                                {touched.msg_description &&
+                                    errors.msg_description && (
+                                        <div>{errors.msg_description}</div>
+                                    )}
                             </FormGroup>
                         </Row>
                         <Row>
-                            <Col>
-                                <Button
-                                    variant="link"
-                                    onClick={() => setShow(true)}
-                                >
-                                    Ver terminos y condiciones
-                                </Button>
-                            </Col>
                             <Col
                                 md={{ span: 4, offset: 8 }}
                                 className="d-grid gap-2"
@@ -332,29 +361,15 @@ export const RegistroClientComp = () => {
                                     type="submit"
                                     size="lg"
                                 >
-                                    Registrar
+                                    Guardar
                                 </Button>
                             </Col>
                         </Row>
                     </Form>
                 )}
             </Formik>
-            <Modal size="lg" show={show} onHide={handleClose}>
-                <ModalBody>
-                    <Card>
-                        <CardImg src={URL + '/user/terminos'}></CardImg>{' '}
-                    </Card>
-                    <Button
-                        as={Col}
-                        md={{ span: 4, offset: 8 }}
-                        variant="outline-primary"
-                        style={{ marginTop: '10px' }}
-                        onClick={handleClose}
-                    >
-                        Cerrar
-                    </Button>
-                </ModalBody>
-            </Modal>
         </Container>
     );
 };
+
+export default DataEmprendedorComp;

@@ -18,10 +18,7 @@ yarn add sweetalert2
 yarn add formik
 yarn add yup
 yarn add react-input-files
+yarn add @table-library/react-table-library
 
 Luego en la misma carpeta ejecute:
 yarn start
-<<<<<<< HEAD
-=======
-
->>>>>>> main
