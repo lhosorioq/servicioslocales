@@ -138,7 +138,7 @@ export const getProveedorMailPass = async (req, res) => {
         auth: true,
         mensaje: 'Bienvenido ' + proveedor.nombre,
         token,
-        emprendedor: proveedor,
+        proveedor: proveedor,
     });
 };
 

@@ -73,7 +73,8 @@ const carga = async (values, file, departamento, ciudad) => {
                 const id = response.data.id;
                 sessionStorage.setItem('token', token);
                 sessionStorage.setItem('id', id);
-                window.location.href = '/emprendedor'; //pendiente ruta de pagina a la que pasara despues de login
+                sessionStorage.setItem('rol', 'user')
+                window.location.href = '/cliente'; //pendiente ruta de pagina a la que pasara despues de login
 
                 Swal.fire({
                     icon: 'success',

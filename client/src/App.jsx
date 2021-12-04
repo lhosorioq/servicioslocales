@@ -10,6 +10,8 @@ import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
 import ContactoViews from './views/ContactoViews';
 import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
+import LoginProveedorView from './views/LoginProveedorView';
+import LoginClienteView from './views/LoginClienteView';
 
 function App() {
     return (
@@ -28,8 +30,11 @@ function App() {
                 <Route path="/equipo" exact>
                     <EquipoViews />
                 </Route>
-                <Route path="/login" exact>
-                    {/* <LoginEmprendedorView /> */}
+                <Route path="/login-empresa" exact>
+                    <LoginProveedorView />
+                </Route>
+                <Route path="/login-cliente" exact>
+                    <LoginClienteView />
                 </Route>
                 <RoutePrivate path="/emprendedor" exact>
                     {/* <DataEmprendedorView /> */}
