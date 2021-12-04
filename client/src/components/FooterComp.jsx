@@ -27,7 +27,7 @@ function FooterComp() {
                         <Footer.Title>Contacto </Footer.Title>
                         <Footer.Il><Icon className="fas fa-map-marked-alt" />Calle del desarrollo</Footer.Il>
                         <Footer.Il><Icon className="fas fa-phone-alt" />+57 304-345-2597</Footer.Il>
-                        <Footer.Il><Icon className="fas fa-envelope" />hola@servicioslocal.osoqui.com</Footer.Il>
+                        <Footer.Il><Icon className="fas fa-envelope" />hola@servicioslocales.osoqui.com</Footer.Il>
                         <Footer.Il><Icon className="fas fa-map-marker-alt" />Colombia</Footer.Il>
                     </Footer.Column>
 
@@ -40,9 +40,7 @@ function FooterComp() {
                     
                 </Footer.Row>
                 <Footer.Il className="footer-copyright text-center py-3">
-            
                     &copy; {new Date().getFullYear()} Copyright: Proyecto Hackathon MisionTic & UTP 
-            
                 </Footer.Il>
             </Footer.Wrapper>
         </Footer>
