@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components';
 
-function TarjetasPerfil({title, subtitulo,paragraph, email, image}) {
+function TarjetasPerfil({title, subtitulo,paragraph, email, image, redes}) {
     return (
         <ServiceCardStyled >
             <div className="container">

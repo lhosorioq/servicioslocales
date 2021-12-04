@@ -101,7 +101,7 @@ const ContactPageStyled = styled.section`
                     left: 20px;
                     top: -19px;
                     display: inline-block;
-                    background-color: var(--background-dark-color);
+                    background-color: var(--primary-color);
                     padding:0 .5rem;
                     color: inherit;
                     
