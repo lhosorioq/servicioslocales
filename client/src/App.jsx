@@ -4,6 +4,10 @@ import Navbar from './components/navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import RegistroProveedoresView from './views/RegistroProveedoresView';
+import LoginProveedorView from './views/LoginProveedorView'
+import LoginClienteView from './views/LoginClienteView'
+import LoginAdminView from './views/LoginAdminView'
+import DataAdminView from './views/DataAdminView'
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
