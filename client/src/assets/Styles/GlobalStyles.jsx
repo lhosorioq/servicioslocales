@@ -5,7 +5,7 @@ const GlobalStyled = createGlobalStyle`
 :root{
     --primary-color: #007bff;
     --primary-color-light: #057FFF;
-    --secondary-color: #6c757d;
+    --secondary-color: #d7dbdf;
     --background-dark-color: #7ac0c0;;
     --background-dark-grey: #fcfcfc;
     --border-color: #000000;
@@ -20,7 +20,6 @@ const GlobalStyled = createGlobalStyle`
     --scrollbar-thump-color: #6b6b6b;
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
-    --lorena:#dbac29;
     --lineas: #ffffff;
 
 } 

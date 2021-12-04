@@ -17,32 +17,32 @@ const Navbar = () => {
                         <img src={logo} width="80" height="80" alt="" />
                     </LogoSl>
                     <MenuItem>
-                        <MenuItemLink >
+                        <MenuItemLink as={Link} to={'/'} >
                         Inicio
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink>
+                        <MenuItemLink as={Link} to={'/acerca de'}>
                         Acerca de
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink>
+                        <MenuItemLink as={Link} to={'/contacto'}>
                         Contacto
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink>
+                        <MenuItemLink as={Link} to={'/equipo'}>
                         Equipo
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink>
+                        <MenuItemLink as={Link} to={'/registro empresa'}>
                         Registro Empresa
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink>
+                        <MenuItemLink as={Link} to={'/registro cliente'}>
                         Registro Cliente
                         </MenuItemLink>
                     </MenuItem> 

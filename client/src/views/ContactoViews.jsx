@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { MainLayout, InnerLayout } from '../assets/Styles/Layouts'
 import Title from '../components/Titulos/Title'
-import Button from '../components/concanto/Button'
+import Button from '../components/concacto/Button'
 import  Icon  from '../components/Icons/Icons'
-import Contacto from '../components/concanto/Contacto'
+import Contacto from '../components/concacto/Contacto'
 
 const ContactoViews = () => {
     const phone = <Icon className="fas fa-phone-alt" /> 

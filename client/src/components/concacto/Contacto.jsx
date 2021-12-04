@@ -23,7 +23,7 @@ const ContactItemStyled = styled.div`
             
 
     padding:1.5rem 2rem;
-    background-color: var(--background-dark-grey);
+    background-color: var(--secondary-color);
     display: flex;
     align-items: center;
     box-shadow: 0 0 5px rgb(0 0 0 / 95%);
