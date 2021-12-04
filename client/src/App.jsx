@@ -1,14 +1,15 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import RegistroProveedoresView from './views/RegistroProveedoresView'
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
-import RegistroClientesView from './views/RegistroClientesView';
+import ContactoViews from './views/ContactoViews';
+import EquipoViews from './views/EquipoViews';
 
 function App() {
     return (
@@ -22,7 +23,10 @@ function App() {
                     {/* <Conocenos /> */}
                 </Route>
                 <Route path="/contacto" exact>
-                    {/* <Contacto /> */}
+                    <ContactoViews/>
+                </Route>
+                <Route path="/equipo" exact>
+                    <EquipoViews/>
                 </Route>
                 <Route path="/login" exact>
                     {/* <LoginEmprendedorView /> */}
