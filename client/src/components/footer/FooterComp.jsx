@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from './FooterItem';
-import Icon from './Icons';
+import Icon from '../Icons/Icons';
 
 function FooterComp() {
     return (

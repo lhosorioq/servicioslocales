@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container,LogoSl, Menu, MenuItem, MenuItemLink, MobileIcon, Wrapper,} from './NavElements'
 import  logo  from '../assets/img/logosl.png'
-import Icon from './Icons'
+import Icon from './Icons/Icons'
 
 
 

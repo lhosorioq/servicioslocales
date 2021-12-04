@@ -10,11 +10,18 @@ para que no se creen mas archivos .lock
 Seguido..
 Entre en la carpeta "client" en una consola command prompt y ejecute:
 yarn install
+yarn add  react-router-dom@5.2.0
+yarn add react-bootstrap bootstrap@5.1.3
 yarn add axios
 yarn add styled-components
 yarn add sweetalert2
 yarn add formik
+yarn add yup
 yarn add react-input-files
 
 Luego en la misma carpeta ejecute:
 yarn start
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
