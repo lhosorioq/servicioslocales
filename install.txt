@@ -1,0 +1,22 @@
+Entre en la carpeta "server" en la terminal command prompt y ejecutar:
+npm install -D @babel/cli @babel/core @babel/preset-env @babel/node
+
+Luego en la misma carpeta ejecute:
+npm run dev
+
+Favor tenerlo presente servidor con npm y client con yarn 
+para que no se creen mas archivos .lock
+
+Seguido..
+Entre en la carpeta "client" en una consola command prompt y ejecute:
+yarn install
+yarn add axios
+yarn add styled-components
+yarn add sweetalert2
+yarn add formik
+yarn add yup
+yarn add react-input-files
+
+Luego en la misma carpeta ejecute:
+yarn start
+
