@@ -32,13 +32,13 @@ justify-content: space-around;
 
 
 export const LogoSl = styled.div`
-    display: block;
+    display: absolute;
     width: 100px;
-    height: 150px;
+    height: 80px;
     background-position: top;
     background-size: 150px 150px;
     position: flex;
-    top: 30px;
+    top: 20px;
     left: 0;
     z-index: 20;
     transition: top 0.2s ease;
@@ -58,14 +58,16 @@ list-style: none;
 @media screen and (max-width: 980px ){
     background-color:#7ac0c0 ;
     position: absolute;
-    top: 105px;
+    top: 40px;
     left: ${({ open }) => (open ? "0" : "-1000%")};
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     transition: 0.5s all ease;
+
+
 }
 `;
 
@@ -104,8 +106,8 @@ cursor: pointer;
 transition: 0.5s all ease;
 
 &:hover{
-    color: ffffff;
-    background-color: #4b9797;
+    /* color: ffffff;
+    background-color: #4b9797; */
     transition: 0.5s all ease;
 }
 
