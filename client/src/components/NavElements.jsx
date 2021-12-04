@@ -59,7 +59,7 @@ list-style: none;
     background-color:#7ac0c0 ;
     position: absolute;
     top: 105px;
-    left: ${({ open }) => (open ? "0" : "-100%")};
+    left: ${({ open }) => (open ? "0" : "-1000%")};
     width: 100%;
     height: 90vh;
     justify-content: center;
