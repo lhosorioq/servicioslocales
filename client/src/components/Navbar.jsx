@@ -56,7 +56,7 @@ const Navbar = () => {
                         </MenuItem>
                         <MenuItem>
                             <MenuItemLink as={Link} to={'/signup'}>
-                            mirame
+                            Registro
                             </MenuItemLink>
                             
                         </MenuItem>

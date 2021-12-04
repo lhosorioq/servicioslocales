@@ -19,11 +19,15 @@ export const createUsuario = async (req, res) => {
             telefono,
         } = req.body;
 
-        const data = req.file.buffer;
-        // const data = req.body.avatar; // Postman
-        const contentType = req.file.mimetype;
-        // const contentType = req.body.avatar.type; //Postman
-        const avatar = { data, contentType };
+        let avatar
+
+        if (req.file) {
+            const data = req.file.buffer;
+            // const data = req.body.avatar; // Postman
+            const contentType = req.file.mimetype;
+            // const contentType = req.body.avatar.type; //Postman
+            avatar = { data, contentType };
+        }
 
         const usuario = new Usuario({
             nombre,
@@ -282,83 +286,10 @@ export const libs = (req, res) => {
     res.status(200).send({ Categorias, Ciudades, Departamentos})
 }
 
-// // Consultar todos los proveedores
-// export const getProveedoresAll = async (req, res) => {
-//     try {
-//         const proveedores = await Usuario.find({}, { img: 0 });
-//         res.status(200).json({
-//             proveedores: proveedores,
-//         });
-//     } catch (error) {
-//         return res.status(400).json({
-//             mensaje: 'Ocurrio un error',
-//             error,
-//         });
-//     }
-// };
-
-// // Consultar todos proveedores visibles 
-// export const getProveedoresVisibles = async (req, res) => {
-//     try {
-//         const proveedores = await Usuario.find({visible: true}, { img: 0 });
-//         res.status(200).json({
-//             proveedores: proveedores,
-//         });
-//     } catch (error) {
-//         return res.status(400).json({
-//             mensaje: 'Ocurrio un error',
-//             error,
-//         });
-//     }
-// };
-
-// // Consultar Proveedores por filtros de busqueda
-// export const getProveedoresFilter = async (req, res) => {
-//     try {
-//         const { actividad, departamento, ciudad, nombre } = req.body;
-//         const proveedores = await Usuario.find(
-//             {
-//                 nombre: { $regex: '.*' + nombre + '.*', $options: 'si' },
-//                 actividad: { $regex: '.*' + actividad + '.*', $options: 'si' },
-//                 departamento: {
-//                     $regex: '.*' + departamento + '.*',
-//                     $options: 'si',
-//                 },
-//                 ciudad: { $regex: '.*' + ciudad + '.*', $options: 'si' },
-//             },
-//             { img: 0 }
-//         );
-//         res.status(200).json({
-//             proveedores: proveedores,
-//         });
-//     } catch (error) {
-//         return res.status(400).json({
-//             mensaje: 'Ocurrio un error',
-//             error,
-//         });
-//     }
-// };
-
-// // Ver imagen de proveedor
-// export const viewImgProveedor = async (req, res) => {
-//     const _id = req.params.id;
-
-//     try {
-//         const resp = await Usuario.findOne({ _id }, { img: 1 });
-//         res.set('Content-Type', resp.img.contentType);
-//         res.send(resp.img.data);
-//     } catch (error) {
-//         return res.status(400).json({
-//             mensaje: 'Ocurrio un error',
-//             error,
-//         });
-//     }
-// };
-
 // Terminos y condiciones 
 export const terminos = async (req, res) => {
     const options = {
-        root: path.join(__dirname),
+        root: path.join(__dirname), 
     };
 
     const fileName = 'TERMINOS_Y_CONDICIONES.png';

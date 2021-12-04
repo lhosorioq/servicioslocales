@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import RegistroProveedoresView from './views/RegistroProveedoresView'
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
+import RegistroClientesView from './views/RegistroClientesView';
 
 function App() {
     return (
@@ -29,7 +31,8 @@ function App() {
                     {/* <DataEmprendedorView /> */}
                 </RoutePrivate>
                 <Route path="/signup" exact>
-                    {/* <Registro /> */}
+                    {/* <RegistroProveedoresView/> */}
+                    <RegistroClientesView/>
                 </Route>
                 <Route path="/admin" exact>
                     {/* <LoginAdminView /> */}

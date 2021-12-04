@@ -18,9 +18,9 @@ import {
     CardImg,
 } from 'react-bootstrap';
 import * as Yup from 'yup';
-import Icon from '../Icons/Icons';
+import Icon from '.././Icons/Icons';
 import InputFiles from 'react-input-files';
-import { Categorias, Departamentos, Ciudades } from '../../libs/search.lib';
+import { Departamentos, Ciudades } from '../../libs/search.lib';
 import { URL } from '../../libs/url';
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -28,8 +28,8 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
         .min(2, 'Nombre muy corto!')
         .max(40, 'Nombre muy largo!')
         .required('Campo Requerido'),
-    mail: Yup.string().email('Invalid email').required('Campo Requerido'),
-    telefono1: Yup.number()
+    email: Yup.string().email('Invalid email').required('Campo Requerido'),
+    telefono: Yup.number()
         .min(0, 'Numero muy corto!')
         .max(9999999999999, 'Numero muy largo!')
         .required('Campo Requerido'),
@@ -37,55 +37,27 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
         .min(8, 'Constraseña muy corta!')
         .max(20, 'Contraseña muy larga!')
         .required('Campo Requerido'),
-    actividad: Yup.string().required('Campo Requerido'),
     direccion: Yup.string()
         .min(3, 'Direccion muy corta!')
         .max(40, 'Direccion muy largo!')
         .required('Campo Requerido'),
-    msg_description: Yup.string()
-        .min(10, 'Mensaje muy corto!')
-        .max(500, 'Mensaje muy largo!')
-        .required('Campo Requerido'),
 });
 
 const carga = async (values, file, departamento, ciudad) => {
-    const {
-        nombre,
-        telefono1,
-        telefono2,
-        mail,
-        password,
-        actividad,
-        direccion,
-        msg_description,
-        telegram,
-        whatsapp,
-        twitter,
-        facebook,
-        linkedin,
-        instagram,
-    } = values;
+    const { nombre, telefono, email, password, direccion } = values;
+    console.log(file)
 
     const data = new FormData();
-    data.append('img', file);
+    data.append('avatar', file);
     data.append('nombre', nombre);
-    data.append('telefono1', telefono1);
-    data.append('telefono2', telefono2);
-    data.append('mail', mail);
+    data.append('telefono', telefono);
+    data.append('email', email);
     data.append('password', password);
-    data.append('actividad', actividad);
     data.append('direccion', direccion);
-    data.append('msg_description', msg_description);
     data.append('departamento', departamento);
     data.append('ciudad', ciudad);
-    data.append('telegram', telegram);
-    data.append('whatsapp', whatsapp);
-    data.append('twitter', twitter);
-    data.append('facebook', facebook);
-    data.append('linkedin', linkedin);
-    data.append('instagram', instagram);
 
-    await Axios.post('proveedor/create', data)
+    await Axios.post('user/create', data)
         .then((response) => {
             const auth = response.data.auth;
             if (!auth) {
@@ -101,7 +73,7 @@ const carga = async (values, file, departamento, ciudad) => {
                 const id = response.data.id;
                 sessionStorage.setItem('token', token);
                 sessionStorage.setItem('id', id);
-                window.location.href = '/proveedor'; //pendiente ruta de pagina a la que pasara despues de login
+                window.location.href = '/emprendedor'; //pendiente ruta de pagina a la que pasara despues de login
 
                 Swal.fire({
                     icon: 'success',
@@ -114,6 +86,7 @@ const carga = async (values, file, departamento, ciudad) => {
         .catch((err) => {
             console.log(err);
         });
+    return 'emprendedores';
 };
 
 // Creacion de options para selects
@@ -123,7 +96,7 @@ const options = (item, i) => (
     </option>
 );
 
-export const RegistroComp = () => {
+export const RegistroClientComp = () => {
     const [file, setFile] = useState({ name: '' });
     const [departamento, setDepartamento] = useState('Departamentos');
     const [ciudad, setCiudad] = useState('Ciudades');
@@ -139,20 +112,11 @@ export const RegistroComp = () => {
             <Formik
                 initialValues={{
                     nombre: '',
-                    mail: '',
-                    telefono1: '',
-                    telefono2: '',
+                    email: '',
+                    telefono: '',
                     password: '',
-                    actividad: '',
                     direccion: '',
-                    msg_description: '',
                     terms: false,
-                    telegram: '',
-                    whatsapp: '',
-                    twitter: '',
-                    facebook: '',
-                    linkedin: '',
-                    instagram: '',
                 }}
                 validationSchema={DisplayingErrorMessagesSchema}
                 onSubmit={(values) => carga(values, file, departamento, ciudad)}
@@ -166,12 +130,12 @@ export const RegistroComp = () => {
                                 controlId="form1"
                                 className="position-relative"
                             >
-                                <FormLabel>Nombre - Razon Social</FormLabel>
+                                <FormLabel>Nombres</FormLabel>
                                 <Field
                                     name="nombre"
                                     className="form-control"
                                     type="text"
-                                    placeholder="Ingrese nombre o la razon social"
+                                    placeholder="Ingrese nombre"
                                 />
                                 {touched.nombre && errors.nombre && (
                                     <div>{errors.nombre}</div>
@@ -185,19 +149,38 @@ export const RegistroComp = () => {
                             >
                                 <FormLabel>Correo electronico</FormLabel>
                                 <Field
-                                    name="mail"
+                                    name="email"
                                     className="form-control"
                                     type="text"
                                     placeholder="Ingrese correo electronico"
                                 />
-                                {touched.mail && errors.mail && (
-                                    <div>{errors.mail}</div>
+                                {touched.email && errors.email && (
+                                    <div>{errors.email}</div>
                                 )}
                             </FormGroup>
                             <FormGroup
                                 as={Col}
                                 md="4"
                                 controlId="form3"
+                                className="position-relative"
+                            >
+                                <FormLabel>Telefono de contacto</FormLabel>
+                                <Field
+                                    name="telefono"
+                                    className="form-control"
+                                    type="number"
+                                    placeholder="Ingrese telefono de contacto"
+                                />
+                                {touched.telefono && errors.telefono && (
+                                    <div>{errors.telefono}</div>
+                                )}
+                            </FormGroup>
+                        </Row>
+                        <Row className="mb-3">
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form4"
                                 className="position-relative"
                             >
                                 <FormLabel>Clave</FormLabel>
@@ -211,47 +194,10 @@ export const RegistroComp = () => {
                                     <div>{errors.password}</div>
                                 )}
                             </FormGroup>
-                        </Row>
-                        <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="3"
-                                controlId="form4"
-                                className="position-relative"
-                            >
-                                <FormLabel>Telefono de contacto 1</FormLabel>
-                                <Field
-                                    name="telefono1"
-                                    className="form-control"
-                                    type="number"
-                                    placeholder="Ingrese telefono de contacto"
-                                />
-                                {touched.telefono1 && errors.telefono1 && (
-                                    <div>{errors.telefono1}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="3"
+                                md="4"
                                 controlId="form5"
-                                className="position-relative"
-                            >
-                                <FormLabel>Telefono de contacto 2</FormLabel>
-                                <Field
-                                    name="telefono2"
-                                    className="form-control"
-                                    type="number"
-                                    placeholder="Ingrese telefono de contacto"
-                                />
-                                {touched.telefono2 && errors.telefono2 && (
-                                    <div>{errors.telefono2}</div>
-                                )}
-                            </FormGroup>
-
-                            <FormGroup
-                                as={Col}
-                                md="3"
-                                controlId="form6"
                                 className="position-relative"
                                 required
                             >
@@ -279,8 +225,8 @@ export const RegistroComp = () => {
                             </FormGroup>
                             <FormGroup
                                 as={Col}
-                                md="3"
-                                controlId="form7"
+                                md="4"
+                                controlId="form6"
                                 className="position-relative"
                                 required
                             >
@@ -306,7 +252,7 @@ export const RegistroComp = () => {
                             <FormGroup
                                 as={Col}
                                 md="4"
-                                controlId="form8"
+                                controlId="form7"
                                 className="position-relative"
                             >
                                 <FormLabel>Direccion</FormLabel>
@@ -325,33 +271,11 @@ export const RegistroComp = () => {
                                 md="4"
                                 controlId="form9"
                                 className="position-relative"
-                            >
-                                <FormLabel>Actividad</FormLabel>
-                                <Field
-                                    as="select"
-                                    name="actividad"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Categorias"
-                                >
-                                    {Categorias.map((item, i) =>
-                                        options(item, i)
-                                    )}
-                                </Field>
-                                {touched.actividad && errors.actividad && (
-                                    <div>{errors.actividad}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form10"
-                                className="position-relative"
                                 required
                             >
                                 {' '}
                                 <FormLabel>
-                                    Ingrese una imagen corporativa
+                                    Ingrese una imagen de perfil
                                 </FormLabel>
                                 <div>
                                     <InputFiles
@@ -367,12 +291,6 @@ export const RegistroComp = () => {
                                                 placeholder={file.name}
                                                 aria-label="file"
                                                 aria-describedby="basic-addon1"
-                                                // value={() => file.name}
-                                                required={
-                                                    file.name === ''
-                                                        ? true
-                                                        : false
-                                                }
                                             />
                                         </InputGroup>
                                     </InputFiles>
@@ -382,144 +300,8 @@ export const RegistroComp = () => {
                         <Row className="mb-3">
                             <FormGroup
                                 as={Col}
-                                md="12"
+                                md="4"
                                 controlId="form11"
-                                className="position-relative"
-                            >
-                                <FormLabel>
-                                    Mensaje Descriptivo o Slogan
-                                </FormLabel>
-                                <Field
-                                    as="textarea"
-                                    rows={3}
-                                    name="msg_description"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Ingrese un mensaje descriptivo o slogan"
-                                />
-                                {touched.msg_description &&
-                                    errors.msg_description && (
-                                        <div>{errors.msg_description}</div>
-                                    )}
-                            </FormGroup>
-                        </Row>
-                        <Row className="mb-3">
-                            <hr />
-                            <h4 style={{ textAlign: 'center' }}>
-                                Redes sociales
-                            </h4>
-                        </Row>
-                        <Row className="mb-3">
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form12"
-                                className="position-relative"
-                            >
-                                <FormLabel>Facebook</FormLabel>
-                                <Field
-                                    name="facebook"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Facebook"
-                                />
-                                {touched.facebook && errors.facebook && (
-                                    <div>{errors.facebook}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form13"
-                                className="position-relative"
-                            >
-                                <FormLabel>Instagram</FormLabel>
-                                <Field
-                                    name="instagram"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Instagram"
-                                />
-                                {touched.instagram && errors.instagram && (
-                                    <div>{errors.instagram}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form14"
-                                className="position-relative"
-                            >
-                                <FormLabel>Twitter</FormLabel>
-                                <Field
-                                    name="twitter"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Twitter"
-                                />
-                                {touched.twitter && errors.twitter && (
-                                    <div>{errors.twitter}</div>
-                                )}
-                            </FormGroup>
-                        </Row>
-                        <Row className="mb-3">
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form15"
-                                className="position-relative"
-                            >
-                                <FormLabel>Linkedin</FormLabel>
-                                <Field
-                                    name="linkedin"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Linkedin"
-                                />
-                                {touched.linkedin && errors.linkedin && (
-                                    <div>{errors.linkedin}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form16"
-                                className="position-relative"
-                            >
-                                <FormLabel>Whatsapp</FormLabel>
-                                <Field
-                                    name="whatsapp"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Whatsapp"
-                                />
-                                {touched.whatsapp && errors.whatsapp && (
-                                    <div>{errors.whatsapp}</div>
-                                )}
-                            </FormGroup>
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form17"
-                                className="position-relative"
-                            >
-                                <FormLabel>Telegram</FormLabel>
-                                <Field
-                                    name="telegram"
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Enlace Telegram"
-                                />
-                                {touched.telegram && errors.telegram && (
-                                    <div>{errors.telegram}</div>
-                                )}
-                            </FormGroup>
-                        </Row>
-                        <Row className="mb-3">
-                            <FormGroup
-                                as={Col}
-                                md="4"
-                                controlId="form18"
                                 className="position-relative"
                             >
                                 <FormCheck
@@ -559,7 +341,7 @@ export const RegistroComp = () => {
             <Modal size="lg" show={show} onHide={handleClose}>
                 <ModalBody>
                     <Card>
-                        <CardImg src={URL + '/proveedor/terminos'}></CardImg>{' '}
+                        <CardImg src={URL + '/user/terminos'}></CardImg>{' '}
                     </Card>
                     <Button
                         as={Col}
