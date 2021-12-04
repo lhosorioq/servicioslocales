@@ -37,12 +37,12 @@ const Navbar = () => {
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink as={Link} to={'/registro empresa'}>
+                        <MenuItemLink as={Link} to={'/registro-empresa'}>
                         Registro Empresa
                         </MenuItemLink>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemLink as={Link} to={'/registro cliente'}>
+                        <MenuItemLink as={Link} to={'/registro-cliente'}>
                         Registro Cliente
                         </MenuItemLink>
                     </MenuItem> 

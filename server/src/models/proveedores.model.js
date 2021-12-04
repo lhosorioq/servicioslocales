@@ -14,13 +14,14 @@ const emprendedorSchema = new Schema({
     msg_description: { type: String, required: true, max: 300 },
     visible: { type: Boolean, required: true, default: false },
     img: { data: Buffer, contentType: String },
-    likes: { type: Number },
-    doesnotlikes: { type: Number },
+    likes: { type: Number, default: 0 },
+    doesnotlikes: { type: Number, default: 0 },
     telegram: { type: String, max: 40 },
     whatsapp: { type: String, max: 40 },
     twitter: { type: String, max: 40 },
     facebook: { type: String, max: 40 },
     linkedin: { type: String, max: 40 },
+    instagram: { type: String, max: 40 },
 });
 
 // Encrypta contraseña
