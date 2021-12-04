@@ -13,22 +13,15 @@ function FooterComp() {
                         <Footer.Il>Registrar pesona</Footer.Il>
                         <Footer.Il>Registrar cliente</Footer.Il>
                         <Footer.Il>Ranking Calificaciones</Footer.Il>
-                        <Footer.Link href="/admin"><Icon className="fas fa-user-lock" />Admin</Footer.Link>
-                    </Footer.Column>
-                        
-                    <Footer.Column>
-                        <Footer.Title>Quienes Somos</Footer.Title>
-                        <Footer.Il>
-                            Somos un grupo de Emprendedores que por medio del conocimiento en desarrollo Web logramos plasmar una idea personal en un gran proyecto, para el beneficio de todas las comunidades en el pais.
-                        </Footer.Il>
+                        <Footer.Link href="/admin">Administracion</Footer.Link>
                     </Footer.Column>
 
                     <Footer.Column>
                         <Footer.Title>Contacto </Footer.Title>
-                        <Footer.Il><Icon className="fas fa-map-marked-alt" />Calle del desarrollo</Footer.Il>
-                        <Footer.Il><Icon className="fas fa-phone-alt" />+57 304-345-2597</Footer.Il>
-                        <Footer.Il><Icon className="fas fa-envelope" />hola@servicioslocales.osoqui.com</Footer.Il>
-                        <Footer.Il><Icon className="fas fa-map-marker-alt" />Colombia</Footer.Il>
+                        <Footer.Il>Calle del desarrollo</Footer.Il>
+                        <Footer.Il>+57 304-345-2597</Footer.Il>
+                        <Footer.Il>hola@servicioslocales.osoqui.com</Footer.Il>
+                        <Footer.Il>Colombia</Footer.Il>
                     </Footer.Column>
 
                     <Footer.Column>
