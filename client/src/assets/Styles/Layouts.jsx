@@ -14,5 +14,5 @@ export const MainLayout = styled.div`
     }
 `;
 export const InnerLayout = styled.div`
-    padding: 5rem 0;
+    padding: .5 rem 0;
 `;
