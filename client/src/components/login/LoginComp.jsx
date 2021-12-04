@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { Container, FormLabel } from 'react-bootstrap';
 
 function LoginComp(props) {
-    const { login, registro } = props;
+    const { login, registro, rol } = props;
 
     const loginSchema = Yup.object().shape({
         password: Yup.string()
@@ -95,7 +95,7 @@ function LoginComp(props) {
                                     <div className="d-grid gap-2">
                                         <a
                                             className="btn btn-primary btn-block mt-2"
-                                            href='/signup'
+                                            href={rol}
                                         >
                                             Sign Up
                                         </a>

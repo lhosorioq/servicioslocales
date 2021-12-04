@@ -6,10 +6,10 @@ import Title from '../components/Titulos/Title';
 import { Container } from 'react-bootstrap';
 import { MainLayout } from '../assets/Styles/Layouts';
 
-function LoginProveedorView() {
-    const loginProveedor = async (data) => {
-        const proveedor = { mail: data.email, password: data.password };
-        await Axios.post('proveedor/login', proveedor)
+function LoginAdminView() {
+    const loginAdmin = async (data) => {
+        const admin = { user: data.email, password: data.password };
+        await Axios.post('/admin/login', admin)
             .then((respuesta) => {
                 const auth = respuesta.data.auth;
                 if (!auth) {
@@ -21,13 +21,11 @@ function LoginProveedorView() {
                     });
                 } else {
                     const token = respuesta.data.token;
-                    const id = respuesta.data.proveedor._id;
-                    const nombre = respuesta.data.proveedor.nombre;
+                    const id = respuesta.data.id;
+                    const rol = respuesta.data.rol;
                     sessionStorage.setItem('token', token);
                     sessionStorage.setItem('id', id);
-                    sessionStorage.setItem('nombre', nombre);
-                    sessionStorage.setItem('rol', 'empresa')
-                    window.location.href = '/proveedor'; //pendiente ruta de pagina a la que pasara despues de login
+                    sessionStorage.setItem('rol', rol);
 
                     Swal.fire({
                         icon: 'success',
@@ -35,6 +33,7 @@ function LoginProveedorView() {
                         showConfirmButton: false,
                         timer: 1500,
                     });
+                    window.location.href = '/admin';
                 }
             })
             .catch((err) => {
@@ -45,11 +44,18 @@ function LoginProveedorView() {
     return (
         <MainLayout>
             <Container>
-                <Title title={'Login Empresas'} span={'Login Empresas'} />
-                <LoginComp login={loginProveedor} registro="block" rol='/registro-empresa' />
+                <Title
+                    title={'Login Administrador'}
+                    span={'Login Administrador'}
+                />
+                <LoginComp
+                    tittle="Login Administrador"
+                    login={loginAdmin}
+                    registro="none"
+                />
             </Container>
         </MainLayout>
     );
 }
 
-export default LoginProveedorView;
+export default LoginAdminView;

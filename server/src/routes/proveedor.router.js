@@ -7,6 +7,7 @@ import {
     logoutProveedor,
     viewImgProveedor,
     getProveedorAll,
+    getProveedoresFilter,
     deleteProveedor,
     terminos,
 } from '../controllers/proveedor.controller';
@@ -41,6 +42,9 @@ router.put(
     verifyToken,
     updateProveedor
 );
+
+// Consultar proveedor por filtro de busqueda
+router.post('/filter', getProveedoresFilter);
 
 // Eliminar proveedor
 router.delete('/delete/:id', verifyToken, deleteProveedor);

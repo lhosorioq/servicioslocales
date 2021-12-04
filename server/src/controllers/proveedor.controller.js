@@ -138,7 +138,7 @@ export const getProveedorMailPass = async (req, res) => {
         auth: true,
         mensaje: 'Bienvenido ' + proveedor.nombre,
         token,
-        emprendedor: proveedor,
+        proveedor: proveedor,
     });
 };
 
@@ -146,7 +146,7 @@ export const getProveedorMailPass = async (req, res) => {
 export const getProveedoresFilter = async (req, res) => {
     try {
         const { actividad, departamento, ciudad, nombre } = req.body;
-        const proveedores = await Usuario.find(
+        const proveedores = await Proveedor.find(
             {
                 nombre: { $regex: '.*' + nombre + '.*', $options: 'si' },
                 actividad: { $regex: '.*' + actividad + '.*', $options: 'si' },

@@ -6,10 +6,10 @@ import Title from '../components/Titulos/Title';
 import { Container } from 'react-bootstrap';
 import { MainLayout } from '../assets/Styles/Layouts';
 
-function LoginProveedorView() {
-    const loginProveedor = async (data) => {
-        const proveedor = { mail: data.email, password: data.password };
-        await Axios.post('proveedor/login', proveedor)
+function LoginClienteView() {
+    const loginCliente = async (data) => {
+        const cliente = { mail: data.email, password: data.password };
+        await Axios.post('user/login', cliente)
             .then((respuesta) => {
                 const auth = respuesta.data.auth;
                 if (!auth) {
@@ -21,13 +21,13 @@ function LoginProveedorView() {
                     });
                 } else {
                     const token = respuesta.data.token;
-                    const id = respuesta.data.proveedor._id;
-                    const nombre = respuesta.data.proveedor.nombre;
+                    const id = respuesta.data.usuario._id;
+                    const nombre = respuesta.data.usuario.nombre;
                     sessionStorage.setItem('token', token);
                     sessionStorage.setItem('id', id);
                     sessionStorage.setItem('nombre', nombre);
-                    sessionStorage.setItem('rol', 'empresa')
-                    window.location.href = '/proveedor'; //pendiente ruta de pagina a la que pasara despues de login
+                    sessionStorage.setItem('rol', 'user')
+                    window.location.href = '/cliente'; //pendiente ruta de pagina a la que pasara despues de login
 
                     Swal.fire({
                         icon: 'success',
@@ -45,11 +45,14 @@ function LoginProveedorView() {
     return (
         <MainLayout>
             <Container>
-                <Title title={'Login Empresas'} span={'Login Empresas'} />
-                <LoginComp login={loginProveedor} registro="block" rol='/registro-empresa' />
+                <Title
+                    title={'Login Clientes'}
+                    span={'Login Clientes'}
+                />
+                <LoginComp login={loginCliente} registro="block" rol='/registro-cliente'/>
             </Container>
         </MainLayout>
     );
 }
 
-export default LoginProveedorView;
+export default LoginClienteView;

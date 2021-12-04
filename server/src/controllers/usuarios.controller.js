@@ -108,7 +108,7 @@ export const getUsuarioMailPass = async (req, res) => {
         auth: true,
         mensaje: 'Bienvenido ' + usuario.nombre,
         token,
-        emprendedor: usuario,
+        usuario: usuario,
     });
 };
 
