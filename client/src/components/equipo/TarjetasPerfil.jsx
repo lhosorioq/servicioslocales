@@ -45,7 +45,10 @@ const ServiceCardStyled = styled.div`
                 border-radius: 10px;
             }
         }
-
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
         p{
             padding: .8rem 0;
         }

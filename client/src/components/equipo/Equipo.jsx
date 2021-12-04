@@ -6,15 +6,33 @@ import TarjetaPerfil from './TarjetasPerfil';
 import HeynarS from '../../assets/img/heynar.jpg';
 import JorgeL from '../../assets/img/jorge.jpg';
 import LuisHO from '../../assets/img/luigi.jpg';
-import Lorena from '../../assets/img/logoperfil.png'
-import Marcela from '../../assets/img/logoperfil.png'
+import Lorena from '../../assets/img/Lorena.jpg'
+import Marcela from '../../assets/img/Marcela.jpg'
+
 
 function EquipoComp() {
     return (
         <InnerLayout>
-            <EquipoStyled>
+            <EquipoStyled className="contenedor">
                 <Title title={'Equipo'} span={'Equipo'} />
                 <div className="equipos">
+
+                <TarjetaPerfil 
+                        image={Lorena} 
+                        title={'Leydi Lorena Garcia'} 
+                        subtitulo={'Developer'}
+                        paragraph={'El Frontend y el CSS es lo que siempre quiero Desarrollar  '}
+                        email={'legas4884@gmail.com'}
+                    />
+                    
+                    <TarjetaPerfil 
+                        image={Marcela} 
+                        title={'Marcela Patiño Ardila'} 
+                        subtitulo={'Developer'}
+                        paragraph={'Apasionada al Desarrollo Frontend'}
+                        email={'ardilamarcela42@gmail.com'}
+                    />
+
 
                 <TarjetaPerfil 
                         image={LuisHO} 
@@ -22,6 +40,7 @@ function EquipoComp() {
                         subtitulo={'Scrum Master'}
                         paragraph={'Ingeniero de Sistemas Programador de sistemas de información enfocado al desarrollo de aplicaciones web.'}
                         email={'Email: lhosorio@gmail.com'}
+                        
                     /> 
                     
                     <TarjetaPerfil 
@@ -40,24 +59,6 @@ function EquipoComp() {
                         email={'Email: jorgeluisvelasquezv@gmail.com'}
                     />
                     
-                    <TarjetaPerfil 
-                        image={Lorena} 
-                        title={'Leydi Lorena Garcia'} 
-                        subtitulo={'Developer'}
-                        paragraph={' '}
-                        email={''}
-                    />
-                    
-                    <TarjetaPerfil 
-                        image={Marcela} 
-                        title={'Marcela Patiño Ardila'} 
-                        subtitulo={'Developer'}
-                        paragraph={' Desarrollo Frontend'}
-                        email={'ardilamarcela42@gmail.com'}
-                    />
-
-                    
-                        
                 </div>
             </EquipoStyled>
         </InnerLayout>
