@@ -34,7 +34,7 @@ const Navbar = () => {
                         </MenuItem>
                         <MenuItem>
                             <MenuItemLink as={Link} to={'/contacto'}>
-                            about
+                            contacto
                             </MenuItemLink>
                         </MenuItem>
                         

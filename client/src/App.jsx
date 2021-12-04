@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
+import ContactoViews from './views/ContactoViews';
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
                     {/* <Conocenos /> */}
                 </Route>
                 <Route path="/contacto" exact>
-                    {/* <Contacto /> */}
+                    <ContactoViews></ContactoViews>
                 </Route>
                 <Route path="/login" exact>
                     {/* <LoginEmprendedorView /> */}
