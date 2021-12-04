@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import config from './config';
 import path from 'path';
-import emprendedorRoutes from './routes/emprendedor.router';
+import proveedorRoutes from './routes/proveedor.router';
 import adminRoutes from './routes/administrador.router';
 import userRoutes from './routes/usuarios.router'
 
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Implementacion de rutas
-app.use('/emprendedor', emprendedorRoutes);
+app.use('/proveedor', proveedorRoutes);
 app.use('/admin', adminRoutes);
 app.use('/user', userRoutes);
 

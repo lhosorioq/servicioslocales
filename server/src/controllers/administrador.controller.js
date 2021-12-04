@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import Admin from '../models/administrador.model';
-import Emprendedor from '../models/emprendedor.model';
+import Emprendedor from '../models/proveedores.model';
 import config from '../config';
 
 // Crear administrador
