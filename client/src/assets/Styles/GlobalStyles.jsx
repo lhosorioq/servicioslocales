@@ -3,21 +3,11 @@ import {createGlobalStyle} from "styled-components"
 const GlobalStyled = createGlobalStyle`
 
 :root{
-    --primary-color: #007bff;
-    --primary-color-light: #057FFF;
+    --primary-color: #7ac0c0;
     --secondary-color: #d7dbdf;
-    --background-dark-color: #7ac0c0;;
-    --background-dark-grey: #fcfcfc;
     --border-color: #000000;
-    --background-light-color: #F1F1F1;
     --background-light-color-2: rgba(199, 197, 110, 0.288);
     --white-color: #F6EDD8;
-    --font-light-color: #000000;
-    --font-dark-color: #313131;
-    --font-dark-color-2: #151515;
-    --sidebar-dark-color: #191D2B;
-    --scrollbar-bg-color: #383838;
-    --scrollbar-thump-color: #6b6b6b;
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
@@ -33,7 +23,7 @@ const GlobalStyled = createGlobalStyle`
 }
 
 body{
-    background-color: var(--background-dark-color);
+    background-color: var(--primary-color);
     color: var(--font-light-color);
     transition: all .4s ease-in-out;
 }
