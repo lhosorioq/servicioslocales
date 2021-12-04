@@ -18,10 +18,10 @@ import {
     CardImg,
 } from 'react-bootstrap';
 import * as Yup from 'yup';
-import Icon from './Icons';
+import Icon from '../Icons/Icons';
 import InputFiles from 'react-input-files';
-import { Categorias, Departamentos, Ciudades } from '../libs/search.lib';
-import { URL } from '../libs/url';
+import { Categorias, Departamentos, Ciudades } from '../../libs/search.lib';
+import { URL } from '../../libs/url';
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
     nombre: Yup.string()

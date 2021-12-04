@@ -15,6 +15,7 @@ import {
     getUsuariosAll,
     deleteUsuario,
     logoutUsuario,
+    libs,
     terminos,
 } from '../controllers/usuarios.controller';
 
@@ -32,6 +33,9 @@ router.post('/login', getUsuarioMailPass);
 
 // Ver terminos y condiciones
 router.get('/terminos', terminos);
+
+// Ver libs
+router.get('/libs', libs);
 
 // Consultar todos los proveedores
 router.get('/', getProveedorAll);
