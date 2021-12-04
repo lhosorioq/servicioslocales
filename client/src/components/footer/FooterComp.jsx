@@ -42,7 +42,7 @@ function FooterComp() {
                     
                 </Footer.Row>
                 <Footer.Il className="footer-copyright text-center py-3">
-                    &copy; {new Date().getFullYear()} Copyright: Proyecto Hackathon MisionTic & UTP 
+                    &copy; {new Date().getFullYear()} Derechos Reservados | Proyecto Hackathon MisionTic & UTP 
                 </Footer.Il>
             </Footer.Wrapper>
         </Footer>
