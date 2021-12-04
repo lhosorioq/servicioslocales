@@ -1,17 +1,16 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-// import { MainLayout } from '../styles/Layouts';
-// import Title from '../components/Title';
+import { MainLayout } from '../assets/Styles/Layouts';
+import Title from '../components/Titulos/Title';
 import {RegistroClientComp} from '../components/registroCliente/RegistroClientComp'
 
 function RegistroClientesView() {
     return (
-        <Container>
-            {/* <Title title={'registro'} span={'registro'} /> */}
+        <MainLayout>
+            <Title title={'registro clientes'} span={'registro clientes'} />
             <p>&nbsp;</p>
             <p>&nbsp;</p>
             <RegistroClientComp/>
-        </Container>
+        </MainLayout>
     );
 }
 

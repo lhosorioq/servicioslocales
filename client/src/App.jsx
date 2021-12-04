@@ -1,15 +1,15 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import RegistroProveedoresView from './views/RegistroProveedoresView'
+import RegistroProveedoresView from './views/RegistroProveedoresView';
 
 import FooterComp from './components/footer/FooterComp';
 import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
 import ContactoViews from './views/ContactoViews';
 import EquipoViews from './views/EquipoViews';
+import RegistroClientesView from './views/RegistroClientesView';
 
 function App() {
     return (
@@ -23,10 +23,10 @@ function App() {
                     {/* <Conocenos /> */}
                 </Route>
                 <Route path="/contacto" exact>
-                    <ContactoViews/>
+                    <ContactoViews />
                 </Route>
                 <Route path="/equipo" exact>
-                    <EquipoViews/>
+                    <EquipoViews />
                 </Route>
                 <Route path="/login" exact>
                     {/* <LoginEmprendedorView /> */}
@@ -34,9 +34,11 @@ function App() {
                 <RoutePrivate path="/emprendedor" exact>
                     {/* <DataEmprendedorView /> */}
                 </RoutePrivate>
-                <Route path="/signup" exact>
-                    {/* <RegistroProveedoresView/> */}
-                    <RegistroClientesView/>
+                <Route path="/registro-empresa" exact>
+                    <RegistroProveedoresView />
+                </Route>
+                <Route path="/registro-cliente" exact>
+                    <RegistroClientesView />
                 </Route>
                 <Route path="/admin" exact>
                     {/* <LoginAdminView /> */}
@@ -52,4 +54,3 @@ function App() {
 }
 
 export default App;
-
