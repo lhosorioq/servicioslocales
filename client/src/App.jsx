@@ -12,6 +12,8 @@ import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
 import LoginProveedorView from './views/LoginProveedorView';
 import LoginClienteView from './views/LoginClienteView';
+import LoginAdminView from './views/LoginAdminView';
+import DataAdminView from './views/DataAdminView'
 
 function App() {
     return (
@@ -36,6 +38,9 @@ function App() {
                 <Route path="/login-cliente" exact>
                     <LoginClienteView />
                 </Route>
+                <Route path="/login-admin" exact>
+                    <LoginAdminView />
+                </Route>
                 <RoutePrivate path="/emprendedor" exact>
                     {/* <DataEmprendedorView /> */}
                 </RoutePrivate>
@@ -45,11 +50,8 @@ function App() {
                 <Route path="/registro-cliente" exact>
                     <RegistroClientesView />
                 </Route>
-                <Route path="/admin" exact>
-                    {/* <LoginAdminView /> */}
-                </Route>
                 <RoutePrivate path="/admin/data" exact>
-                    {/* <DataAdminView /> */}
+                    <DataAdminView />
                 </RoutePrivate>
                 <RoutePrivate path="/logout" exact></RoutePrivate>
             </Switch>
