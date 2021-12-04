@@ -3,7 +3,7 @@ import {createGlobalStyle} from "styled-components"
 const GlobalStyled = createGlobalStyle`
 
 :root{
-    --primary-color: #7ac0c0;
+    --primary-color: #f1f1f1;
     --secondary-color: #d7dbdf;
     --border-color: #000000;
     --background-light-color-2: rgba(199, 197, 110, 0.288);
@@ -56,6 +56,7 @@ h1{
     color: var(--white-color);
     span{
         font-size: 4rem;
+        color: #000000;
         @media screen and (max-width: 502px){
             font-size: 3rem
         }
@@ -66,7 +67,7 @@ h1{
 }
 
 span{
-    color: var(--primary-color);
+    color: var(--black-color);
 }
 h6{
     color: var(--white-color);
