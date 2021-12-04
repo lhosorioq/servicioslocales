@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { MainLayout, InnerLayout } from '../assets/Styles/Layouts'
 import Title from '../components/Titulos/Title'
-import Button from '../components/concacto/Button'
+import Button from '../components/contacto/Button'
 import  Icon  from '../components/Icons/Icons'
-import Contacto from '../components/concacto/Contacto'
+import Contacto from '../components/contacto/Contacto'
 
 const ContactoViews = () => {
     const phone = <Icon className="fas fa-phone-alt" /> 
@@ -12,42 +12,43 @@ const ContactoViews = () => {
     const location = <Icon className="fas fa-map-marker-alt" />
     return (
         <MainLayout >
-            <Title title={'Contacto'} span={'Contacto'} />
-            <ContactPageStyled >
-            <InnerLayout className={'contact-section'}>
-                            <div className="left-content">
-                    <div className="contact-title">
-                        <h4>Pongase en contacto con nosotros</h4>
+            <ContactPageStyled className="contenedor">
+                <Title title={'Contacto'} span={'Contacto'} />
+                <InnerLayout className={'contact-section'}>
+                    <div className="left-content">
+                        <div className="contact-title">
+                            <h4>Pongase en contacto con nosotros</h4>
+                        </div>
+                        <form  className="form">
+                            <div className="form-field">
+                                <label htmlFor="name"  ><h6>Introduzca su nombre*</h6></label>
+                                <input type="text" id="name" />
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="email" >
+                                    <h6>Introduzca su Email*</h6>
+                                </label>
+                                <input type="email" id="email" />
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="subject"  ><h6>Introduzca su asunto</h6></label>
+                                <input type="text" id="subject" />
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="text-area"><h6>introduce su mensaje*</h6></label>
+                                <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+                            </div>
+                            <div className="form-field f-button">
+                                <Button title={'Enviar mensaje'} />
+                            </div>
+                        </form>
                     </div>
-                    <form  className="form">
-                        <div className="form-field">
-                            <label htmlFor="name"  ><h6>Introduzca su nombre*</h6></label>
-                            <input type="text" id="name" />
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="email"  ><h6>Introduzca su Email*</h6></label>
-                            <input type="email" id="email" />
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="subject"  ><h6>Introduzca su asunto</h6></label>
-                            <input type="text" id="subject" />
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="text-area"><h6>introduce su mensaje*</h6></label>
-                            <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
-                        </div>
-                        <div className="form-field f-button">
-                            <Button title={'Enviar mensaje'} />
-                        </div>
-                    </form>
-                </div>
-                <div className="right-content">
-                    <Contacto title={'Teléfono'} icon={phone} cont1={'+57 475-4785-2545'} cont2={'+57 663520283'} />
-                    <Contacto title={'Email'} icon={email} cont1={'sueñosrealidad@call.com'} cont2={'sueñorealidad@gmail.com'} />
-                    <Contacto title={'Dirección'} icon={location} cont1={'Calle del desarrollo'} cont2={'Colombia'} />
-                    
-                </div>
-            </InnerLayout>
+                    <div className="right-content">
+                        <Contacto title={'Teléfono'} icon={phone} cont1={'+57 475-4785-2545'} cont2={'+57 663520283'} />
+                        <Contacto title={'Email'} icon={email} cont1={'sueñosrealidad@call.com'} cont2={'sueñorealidad@gmail.com'} />
+                        <Contacto title={'Dirección'} icon={location} cont1={'Calle del desarrollo'} cont2={'Colombia'} />
+                    </div>
+                </InnerLayout>
             </ContactPageStyled>
         </MainLayout>
     )
@@ -55,9 +56,6 @@ const ContactoViews = () => {
 
 const ContactPageStyled = styled.section`
 
-    
-
-    
     .contact-section{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -101,7 +99,7 @@ const ContactPageStyled = styled.section`
                     left: 20px;
                     top: -19px;
                     display: inline-block;
-                    background-color: var(--primary-color);
+                    background-color: var(--background-dark-color);
                     padding:0 .5rem;
                     color: inherit;
                     

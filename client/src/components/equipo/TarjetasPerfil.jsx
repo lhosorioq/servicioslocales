@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components';
 
-function TarjetasPerfil({title, subtitulo,paragraph, email, image, redes}) {
+function TarjetasPerfil({title, subtitulo,paragraph, email, image}) {
     return (
         <ServiceCardStyled >
             <div className="container">
@@ -45,7 +45,10 @@ const ServiceCardStyled = styled.div`
                 border-radius: 10px;
             }
         }
-
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
         p{
             padding: .8rem 0;
         }

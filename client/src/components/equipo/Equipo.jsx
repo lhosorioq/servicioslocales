@@ -13,9 +13,26 @@ import Marcela from '../../assets/img/Marcela.jpg'
 function EquipoComp() {
     return (
         <InnerLayout>
-            <EquipoStyled>
+            <EquipoStyled className="contenedor">
                 <Title title={'Equipo'} span={'Equipo'} />
                 <div className="equipos">
+
+                <TarjetaPerfil 
+                        image={Lorena} 
+                        title={'Leydi Lorena Garcia'} 
+                        subtitulo={'Developer'}
+                        paragraph={'El Frontend y el CSS es lo que siempre quiero Desarrollar  '}
+                        email={'legas4884@gmail.com'}
+                    />
+                    
+                    <TarjetaPerfil 
+                        image={Marcela} 
+                        title={'Marcela Patiño Ardila'} 
+                        subtitulo={'Developer'}
+                        paragraph={'Apasionada al Desarrollo Frontend'}
+                        email={'ardilamarcela42@gmail.com'}
+                    />
+
 
                 <TarjetaPerfil 
                         image={LuisHO} 
@@ -42,24 +59,6 @@ function EquipoComp() {
                         email={'Email: jorgeluisvelasquezv@gmail.com'}
                     />
                     
-                    <TarjetaPerfil 
-                        image={Lorena} 
-                        title={'Leydi Lorena Garcia'} 
-                        subtitulo={'Developer'}
-                        paragraph={'El Frontend y el CSS es lo que siempre quiero Desarrollar  '}
-                        email={'legas4884@gmail.com'}
-                    />
-                    
-                    <TarjetaPerfil 
-                        image={Marcela} 
-                        title={'Marcela Patiño Ardila'} 
-                        subtitulo={'Developer'}
-                        paragraph={'Apasionada al Desarrollo Frontend'}
-                        email={'ardilamarcela42@gmail.com'}
-                    />
-
-                    
-                        
                 </div>
             </EquipoStyled>
         </InnerLayout>
