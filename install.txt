@@ -21,4 +21,7 @@ yarn add react-input-files
 
 Luego en la misma carpeta ejecute:
 yarn start
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
