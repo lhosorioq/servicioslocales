@@ -9,22 +9,19 @@ import LuisHO from '../../assets/img/luigi.jpg';
 import Lorena from '../../assets/img/Lorena.jpg'
 import Marcela from '../../assets/img/Marcela.jpg'
 
-
 function EquipoComp() {
     return (
         <InnerLayout>
-            <EquipoStyled className="contenedor">
+            <EquipoStyled >
                 <Title title={'Equipo'} span={'Equipo'} />
                 <div className="equipos">
-
-                <TarjetaPerfil 
+                    <TarjetaPerfil 
                         image={Lorena} 
                         title={'Leydi Lorena Garcia'} 
                         subtitulo={'Developer'}
                         paragraph={'El Frontend y el CSS es lo que siempre quiero Desarrollar  '}
                         email={'legas4884@gmail.com'}
                     />
-                    
                     <TarjetaPerfil 
                         image={Marcela} 
                         title={'Marcela Patiño Ardila'} 
@@ -32,17 +29,6 @@ function EquipoComp() {
                         paragraph={'Apasionada al Desarrollo Frontend'}
                         email={'ardilamarcela42@gmail.com'}
                     />
-
-
-                <TarjetaPerfil 
-                        image={LuisHO} 
-                        title={'Luis Humberto Osorio Quiceno'}
-                        subtitulo={'Scrum Master'}
-                        paragraph={'Ingeniero de Sistemas Programador de sistemas de información enfocado al desarrollo de aplicaciones web.'}
-                        email={'Email: lhosorio@gmail.com'}
-                        
-                    /> 
-                    
                     <TarjetaPerfil 
                         image={HeynarS} 
                         title={'Heynar Soto Holguin'} 
@@ -50,7 +36,6 @@ function EquipoComp() {
                         paragraph={' Diseño 3D. Me gusta el desarrollo web'}
                         email={'Email: heynar76@hotmail.com'}
                     />
-                    
                     <TarjetaPerfil 
                         image={JorgeL} 
                         title={'Jorge Luis Velasquez Vanegas'} 
@@ -58,7 +43,14 @@ function EquipoComp() {
                         paragraph={'Tecnólogo electrónico. Apasionado de la tecnología y el desarrollo de software..'}
                         email={'Email: jorgeluisvelasquezv@gmail.com'}
                     />
-                    
+                    <TarjetaPerfil 
+                        image={LuisHO} 
+                        title={'Luis Humberto Osorio Quiceno'}
+                        subtitulo={'Scrum Master'}
+                        paragraph={'Ingeniero de Sistemas Programador de sistemas de información enfocado al desarrollo de aplicaciones web.'}
+                        email={'Email: lhosorio@gmail.com'}
+                        
+                    /> 
                 </div>
             </EquipoStyled>
         </InnerLayout>
@@ -67,7 +59,7 @@ function EquipoComp() {
 
 const EquipoStyled = styled.section`
     .equipos{
-        margin-top: 5rem;
+        margin-top: 2rem;
         display: grid;
         grid-template-columns: repeat(3,1fr);
         grid-gap: 1.5rem;

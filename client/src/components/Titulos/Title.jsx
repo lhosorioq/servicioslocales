@@ -10,16 +10,16 @@ const Title = ({title, span}) => {
 }
 
 const TitleStyled = styled.div`
-        position: relative;
+    position: relative;
     h2{
-        color: var(--white-color);
-        font-size: 3.1rem;
-        font-weight: 600;
+        color: #7ac0c0;
+        font-size: 1.5rem;
+        font-weight: 500;
         text-transform: uppercase;
         position: relative;
         padding-bottom: .7rem;
         @media screen and (max-width: 496px){
-            font-size: 2.8rem;
+            font-size: 0.8rem;
         }
         @media screen and (max-width: 370px){
             font-size: 2rem;
@@ -49,7 +49,7 @@ const TitleStyled = styled.div`
         span{
             font-weight: 900;
             color: rgba(25,29,43,.75);
-            font-size: 5rem;
+            font-size: 3rem;
             position: absolute;
             left: 0;
             top: 40%;

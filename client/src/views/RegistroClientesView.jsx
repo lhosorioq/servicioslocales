@@ -5,7 +5,7 @@ import {RegistroClientComp} from '../components/registroCliente/RegistroClientCo
 
 function RegistroClientesView() {
     return (
-        <MainLayout>
+        <MainLayout className="contenedor">
             <Title title={'registro clientes'} span={'registro clientes'} />
             <p>&nbsp;</p>
             <p>&nbsp;</p>

@@ -21,21 +21,21 @@ const ContactoViews = () => {
                         </div>
                         <form  className="form">
                             <div className="form-field">
-                                <label htmlFor="name"  ><h6>Introduzca su nombre*</h6></label>
+                                <label htmlFor="name">Escriba su nombre*</label>
                                 <input type="text" id="name" />
                             </div>
                             <div className="form-field">
                                 <label htmlFor="email" >
-                                    <h6>Introduzca su Email*</h6>
+                                Escriba su Correo Electronico*
                                 </label>
                                 <input type="email" id="email" />
                             </div>
                             <div className="form-field">
-                                <label htmlFor="subject"  ><h6>Introduzca su asunto</h6></label>
+                                <label htmlFor="subject"  >Escriba su asunto</label>
                                 <input type="text" id="subject" />
                             </div>
                             <div className="form-field">
-                                <label htmlFor="text-area"><h6>introduce su mensaje*</h6></label>
+                                <label htmlFor="text-area">Escriba su mensaje*</label>
                                 <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
                             </div>
                             <div className="form-field f-button">
@@ -55,19 +55,16 @@ const ContactoViews = () => {
 }
 
 const ContactPageStyled = styled.section`
-
     .contact-section{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 2rem;
-        
         @media screen and (max-width: 978px){
             grid-template-columns: repeat(1, 1fr);
             .f-button{
                 margin-bottom: 3rem;
             }
         }
-        
         .name{
             color: var(--primary-color);
         }
@@ -80,7 +77,7 @@ const ContactPageStyled = styled.section`
         }
         .contact-title{
             h4{
-                color: var(--white-color);
+                color: #7ac0c0;
                 padding: 1rem 0;
                 font-size: 1.8rem;
             }
@@ -98,11 +95,11 @@ const ContactPageStyled = styled.section`
                     position: absolute;
                     left: 20px;
                     top: -19px;
+                    font-size: 1.1em;
                     display: inline-block;
                     background-color: var(--background-dark-color);
                     padding:0 .5rem;
-                    color: inherit;
-                    
+                    color: #7ac0c0;
                 }
                 input{
                     border: 1px solid var(--lineas);
@@ -124,8 +121,6 @@ const ContactPageStyled = styled.section`
                     box-shadow: 0 0 5px rgb(0 0 0 / 75%);
                 }
             }
-
-            
         }
     }
 `;

@@ -5,9 +5,7 @@ const Contacto = ({title, icon, cont1, cont2}) => {
     return (
         <ContactItemStyled >
             <div className="left-content">
-                {
-                    icon
-                }
+                { icon }
             </div>
             <div className="right-content">
                 <h6>{title}</h6>
@@ -19,15 +17,10 @@ const Contacto = ({title, icon, cont1, cont2}) => {
 }
 
 const ContactItemStyled = styled.div`
-
-            
-
-    padding:1.5rem 2rem;
-    background-color: var(--secondary-color);
+    padding:1rem;
     display: flex;
     align-items: center;
     box-shadow: 0 0 5px rgb(0 0 0 / 95%);
-    
     &:not(:last-child){
         margin-bottom: 2.5rem;
     }
@@ -55,6 +48,5 @@ const ContactItemStyled = styled.div`
         }
     }
 `;
-
 
 export default Contacto

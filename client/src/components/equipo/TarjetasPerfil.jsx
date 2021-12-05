@@ -19,7 +19,7 @@ function TarjetasPerfil({title, subtitulo,paragraph, email, image}) {
 const ServiceCardStyled = styled.div`
     background-color: var(--secondary-color);
     border-left: 1px solid var(--white-color);
-    border-top: 8px solid var(--white-color);
+    border-top: 8px solid #7ac0c0;
     border-right: 1px solid var(--white-color);
     border-bottom: 1px solid var(--white-color);
     transition: all .4s ease-in-out;
@@ -28,7 +28,7 @@ const ServiceCardStyled = styled.div`
         transform: translateY(3px);
     }
     .container{
-        padding: 1.2rem;
+        padding: 0.2rem;
         h4{
             color: var(--font-light-color);
             font-size: 1.6rem;
