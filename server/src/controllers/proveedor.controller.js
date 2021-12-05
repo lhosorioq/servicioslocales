@@ -107,6 +107,7 @@ export const getProveedorId = async (req, res) => {
 
 // Cargar likes
 export const likes = async (req, res) => {
+    console.log(req.body)
     const _id = req.params.id;
     const body = req.body;
 
@@ -127,6 +128,7 @@ export const likes = async (req, res) => {
 
 // Cargar doesnotlikes
 export const doesnotlikes = async (req, res) => {
+    console.log(req.body);
     const _id = req.params.id;
     const body = req.body;
 
