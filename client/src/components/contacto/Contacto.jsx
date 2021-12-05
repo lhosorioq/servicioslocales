@@ -18,6 +18,7 @@ const Contacto = ({title, icon, cont1, cont2}) => {
 
 const ContactItemStyled = styled.div`
     padding:1rem;
+    /* background-color: var(--background-dark-grey) */
     display: flex;
     align-items: center;
     box-shadow: 0 0 5px rgb(0 0 0 / 95%);
@@ -39,7 +40,7 @@ const ContactItemStyled = styled.div`
 
     .right-content{
         h6{
-            color: var(--border-color);
+            color: var(--);
             font-size: 1.2rem;
             padding-bottom: .6rem;
         }
