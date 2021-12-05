@@ -24,6 +24,7 @@ export const createProveedor = async (req, res) => {
             twitter,
             facebook,
             linkedin,
+            instagram,
         } = req.body;
 
         const data = req.file.buffer;
@@ -50,6 +51,7 @@ export const createProveedor = async (req, res) => {
             twitter,
             facebook,
             linkedin,
+            instagram,
             img,
         });
 
@@ -187,6 +189,7 @@ export const viewImgProveedor = async (req, res) => {
 
 // Actualizar un proveedor
 export const updateProveedor = async (req, res) => {
+    
     const _id = req.params.id;
     const {
         nombre,
@@ -206,6 +209,7 @@ export const updateProveedor = async (req, res) => {
         twitter,
         facebook,
         linkedin,
+        instagram,
     } = req.body;
 
     let body = {};
@@ -235,6 +239,7 @@ export const updateProveedor = async (req, res) => {
             twitter,
             facebook,
             linkedin,
+            instagram,
             img,
         });
 
@@ -258,9 +263,11 @@ export const updateProveedor = async (req, res) => {
         if (proveedor.doesnotlikes !== '')
             body['doesnotlikes'] = proveedor.doesnotlikes;
         if (proveedor.telegram !== '') body['telegram'] = proveedor.telegram;
+        if (proveedor.facebook !== '') body['facebook'] = proveedor.facebook;
         if (proveedor.whatsapp !== '') body['whatsapp'] = proveedor.whatsapp;
         if (proveedor.twitter !== '') body['twitter'] = proveedor.twitter;
         if (proveedor.linkedin !== '') body['linkedin'] = proveedor.linkedin;
+        if (proveedor.instagram !== '') body['instagram'] = proveedor.instagram;
         body['img'] = proveedor.img;
     } else {
         const proveedor = new Proveedor({
@@ -280,6 +287,7 @@ export const updateProveedor = async (req, res) => {
             whatsapp,
             twitter,
             facebook,
+            instagram,
             linkedin,
         });
 
@@ -302,11 +310,12 @@ export const updateProveedor = async (req, res) => {
         if (proveedor.doesnotlikes !== '')
             body['doesnotlikes'] = proveedor.doesnotlikes;
         if (proveedor.telegram !== '') body['telegram'] = proveedor.telegram;
+        if (proveedor.facebook !== '') body['facebook'] = proveedor.facebook;
         if (proveedor.whatsapp !== '') body['whatsapp'] = proveedor.whatsapp;
         if (proveedor.twitter !== '') body['twitter'] = proveedor.twitter;
         if (proveedor.linkedin !== '') body['linkedin'] = proveedor.linkedin;
+        if (proveedor.instagram !== '') body['instagram'] = proveedor.instagram;
     }
-
     try {
         const registro = await Proveedor.findByIdAndUpdate(_id, body, {
             new: true,

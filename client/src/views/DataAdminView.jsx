@@ -5,7 +5,7 @@ import TablaEmprendedoresComp from '../components/tablas/TablaEmprendedoresComp'
 import TableAdministradoresCom from '../components/tablas/TableAdministradoresCom';
 
 function AdminEmprendedoresView() {
-    const [key, setKey] = useState('emprendedores');
+    const [key, setKey] = useState('proveedores');
     return (
         <Container>
             <Tabs
@@ -14,7 +14,7 @@ function AdminEmprendedoresView() {
                 onSelect={(k) => setKey(k)}
                 className="mb-3 mt-2"
             >
-                <Tab eventKey="emprendedores" title="Emprendedores">
+                <Tab eventKey="proveedores" title="Proveedores">
                     <TablaEmprendedoresComp />
                 </Tab>
                 <Tab eventKey="clientes" title="Clientes">
