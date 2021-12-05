@@ -51,7 +51,7 @@ function SearchComp(props) {
                 bg="info"
                 variant="dark"
                 sticky="top"
-                style={{top: '126px'}}
+                style={{top: '70px'}}
             >
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

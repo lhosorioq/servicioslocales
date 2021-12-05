@@ -10,7 +10,7 @@ import LoginAdminView from './views/LoginAdminView'
 import DataAdminView from './views/DataAdminView'
 
 import FooterComp from './components/footer/FooterComp';
-import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
+import { RouteAdmin, RouteProveedor, RoutePrivate } from './components/routes/RoutePrivate.jsx';
 import ContactoViews from './views/ContactoViews';
 import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
@@ -53,12 +53,12 @@ function App() {
                 <Route path="/card/:id" exact>
                     <CardView />
                 </Route>
-                <RoutePrivate path="/proveedor" exact>
+                <RouteProveedor path="/proveedor" exact>
                     <DataEmprendedorView/>
-                </RoutePrivate>
-                <RoutePrivate path="/admin" exact>
+                </RouteProveedor>
+                <RouteAdmin path="/admin" exact>
                     <DataAdminView />
-                </RoutePrivate>
+                </RouteAdmin>
                 <RoutePrivate path="/logout" exact></RoutePrivate>
             </Switch>
             <FooterComp />
