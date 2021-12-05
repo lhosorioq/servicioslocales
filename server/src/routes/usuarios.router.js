@@ -4,6 +4,7 @@ import {
     viewImgProveedor,
     getProveedoresVisibles,
     getProveedoresFilter,
+    getProveedorId,
 } from '../controllers/proveedor.controller';
 
 import {
@@ -39,6 +40,9 @@ router.get('/libs', libs);
 
 // Consultar todos los proveedores
 router.get('/', getProveedorAll);
+
+// Consultar proveedor por id 
+router.get('/proveedor/:id', getProveedorId)
 
 // Consultar proveedores visibles
 router.get('/visible', getProveedoresVisibles);

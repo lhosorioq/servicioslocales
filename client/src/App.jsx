@@ -15,6 +15,7 @@ import ContactoViews from './views/ContactoViews';
 import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
 import Homeviews from './views/HomeViews';
+import CardView from './views/CardView';
 
 function App() {
     return (
@@ -50,6 +51,9 @@ function App() {
                 </Route>
                 <Route path="/registro-cliente" exact>
                     <RegistroClientesView />
+                </Route>
+                <Route path="/card/:id" exact>
+                    <CardView/>
                 </Route>
                 <RoutePrivate path="/admin/data" exact>
                     <DataAdminView />
