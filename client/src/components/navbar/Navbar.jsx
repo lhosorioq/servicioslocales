@@ -24,7 +24,7 @@ export default function NavbarComp() {
                     
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Brand as={Link} to={'/'}>
-                        <img src={logo} width="50" height="50" alt="" />
+                        <img src={logo} width="100" height="100" alt="" />
                     </Navbar.Brand>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">

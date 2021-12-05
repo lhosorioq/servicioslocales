@@ -23,6 +23,7 @@ const ServiceCardStyled = styled.div`
     border-right: 1px solid var(--white-color);
     border-bottom: 1px solid var(--white-color);
     transition: all .4s ease-in-out;
+    box-shadow: 0 15px 14px rgb(0 42 177 / 15%);
     &:hover{
         border-top: 8px solid var(--colorlogo);
         transform: translateY(3px);

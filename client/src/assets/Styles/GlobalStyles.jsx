@@ -15,6 +15,7 @@ const GlobalStyled = createGlobalStyle`
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
+    --botton: #e7906dc0
     
 } 
 
@@ -55,7 +56,9 @@ a{
 
 h1{
     font-size: 4rem;
-    color: var(--white-color);
+    color: var(--gris-oscuro);
+    font-family: 'Montserrat Alternates', sans-serif;
+
     span{
         font-size: 4rem;
         color: #000000;
