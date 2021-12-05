@@ -59,6 +59,12 @@ const DataEmprendedorComp = (props) => {
             actividad,
             direccion,
             msg_description,
+            telegram,
+            whatsapp,
+            twitter,
+            facebook,
+            linkedin,
+            instagram,
         } = values;
 
         const data = new FormData();
@@ -72,6 +78,12 @@ const DataEmprendedorComp = (props) => {
         data.append('msg_description', msg_description);
         data.append('departamento', departamento);
         data.append('ciudad', ciudad);
+        data.append('telegram', telegram);
+        data.append('whatsapp', whatsapp);
+        data.append('twitter', twitter);
+        data.append('facebook', facebook);
+        data.append('linkedin', linkedin);
+        data.append('instagram', instagram);
 
         const token = 'Bearer ' + sessionStorage.getItem('token');
         const id = emprendedor._id;
@@ -117,6 +129,12 @@ const DataEmprendedorComp = (props) => {
                     actividad: emprendedor.actividad,
                     direccion: emprendedor.direccion,
                     msg_description: emprendedor.msg_description,
+                    telegram: emprendedor.telegram,
+                    whatsapp: emprendedor.whatsapp,
+                    twitter: emprendedor.twitter,
+                    facebook: emprendedor.facebook,
+                    linkedin: emprendedor.linkedin,
+                    instagram: emprendedor.instagram,
                 }}
                 validationSchema={DisplayingErrorMessagesSchema}
                 onSubmit={(values) => carga(values)}
@@ -349,6 +367,118 @@ const DataEmprendedorComp = (props) => {
                                     errors.msg_description && (
                                         <div>{errors.msg_description}</div>
                                     )}
+                            </FormGroup>
+                        </Row>
+                        <Row className="mb-3">
+                            <hr />
+                            <h4 style={{ textAlign: 'center' }}>
+                                Redes sociales
+                            </h4>
+                        </Row>
+                        <Row className="mb-3">
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form12"
+                                className="position-relative"
+                            >
+                                <FormLabel>Facebook</FormLabel>
+                                <Field
+                                    name="facebook"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Facebook"
+                                />
+                                {touched.facebook && errors.facebook && (
+                                    <div>{errors.facebook}</div>
+                                )}
+                            </FormGroup>
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form13"
+                                className="position-relative"
+                            >
+                                <FormLabel>Instagram</FormLabel>
+                                <Field
+                                    name="instagram"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Instagram"
+                                />
+                                {touched.instagram && errors.instagram && (
+                                    <div>{errors.instagram}</div>
+                                )}
+                            </FormGroup>
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form14"
+                                className="position-relative"
+                            >
+                                <FormLabel>Twitter</FormLabel>
+                                <Field
+                                    name="twitter"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Twitter"
+                                />
+                                {touched.twitter && errors.twitter && (
+                                    <div>{errors.twitter}</div>
+                                )}
+                            </FormGroup>
+                        </Row>
+                        <Row className="mb-3">
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form15"
+                                className="position-relative"
+                            >
+                                <FormLabel>Linkedin</FormLabel>
+                                <Field
+                                    name="linkedin"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Linkedin"
+                                />
+                                {touched.linkedin && errors.linkedin && (
+                                    <div>{errors.linkedin}</div>
+                                )}
+                            </FormGroup>
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form16"
+                                className="position-relative"
+                            >
+                                <FormLabel>Whatsapp</FormLabel>
+                                <Field
+                                    name="whatsapp"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Whatsapp"
+                                />
+                                {touched.whatsapp && errors.whatsapp && (
+                                    <div>{errors.whatsapp}</div>
+                                )}
+                            </FormGroup>
+                            <FormGroup
+                                as={Col}
+                                md="4"
+                                controlId="form17"
+                                className="position-relative"
+                            >
+                                <FormLabel>Telegram</FormLabel>
+                                <Field
+                                    name="telegram"
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Enlace Telegram"
+                                />
+                                {touched.telegram && errors.telegram && (
+                                    <div>{errors.telegram}</div>
+                                )}
                             </FormGroup>
                         </Row>
                         <Row>

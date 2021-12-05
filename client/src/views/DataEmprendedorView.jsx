@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import {
     Card,
@@ -117,22 +118,16 @@ function DataEmprendedorView() {
                                     </Card.Text>
                                     <Card.Text>
                                         {' '}
-                                        Direccion: {emprendedor.direccion}{' '}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {' '}
-                                        Telefono: {emprendedor.telefono1}{' '}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {' '}
                                         Ciudad: {emprendedor.ciudad}{' '}
                                     </Card.Text>
                                     <Card.Text>
                                         {' '}
-                                        Departamento: {
-                                            emprendedor.departamento
-                                        }{' '}
+                                        Me gusta: {emprendedor.likes}{' '}
                                     </Card.Text>
+
+                                    <Link to={`/card/${emprendedor._id}`}>
+                                        Ver mas...
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -148,7 +143,7 @@ function DataEmprendedorView() {
                         <Col
                             md={{ span: 2, offset: 10 }}
                             className="d-grid gap-2"
-                            style={{ marginBottom: '50px' }}
+                            style={{ marginBottom: '50px', marginTop: '20px' }}
                         >
                             <i
                                 className="fas fa-user-slash"
@@ -181,7 +176,8 @@ function DataEmprendedorView() {
         );
     }
     return (
-        <div className="container" style={{ height: '500px' }}>
+        <div className="container" style={{ height: '500px', marginTop: '20px' }}>
+            <h2>Cargando Datos</h2>
             <ProgressBar animated now={45} />
         </div>
     );
