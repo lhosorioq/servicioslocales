@@ -61,7 +61,8 @@ function HomeView() {
         <>
             <Home/>
             <SearchComp />
-            <div className="container" style={{ height: '1000px' }}>
+            <div className="container" style={{ height: '1000px', marginTop: '100px' }}>
+                <h2>Cargando Datos</h2>
                 <ProgressBar animated now={45} />
             </div>
             

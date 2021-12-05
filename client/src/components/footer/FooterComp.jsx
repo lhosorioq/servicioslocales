@@ -21,7 +21,7 @@ function FooterComp() {
                         <Footer.Link href="#">Personas</Footer.Link>
                         <Footer.Link href="#">Clientes</Footer.Link>
                         <Footer.Link href="#">Ranking Calificaciones</Footer.Link>
-                        <Footer.Link href="/admin">Administrador</Footer.Link>
+                        <Footer.Link href="/login-admin">Administrador</Footer.Link>
                     </Footer.Column>
 
                     <Footer.Column>
