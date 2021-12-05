@@ -173,6 +173,7 @@ function TablaProveedoresComp() {
         })
             .then((response) => {
                 alerta(response.data.mensaje, 'success');
+                loadProveedores(params);
             })
             .catch((err) => {
                 console.log(err);

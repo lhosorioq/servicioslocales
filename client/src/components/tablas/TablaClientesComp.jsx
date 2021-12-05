@@ -12,7 +12,7 @@ import {
 } from '@table-library/react-table-library/table';
 import { useTheme } from '@table-library/react-table-library/theme';
 import Swal from 'sweetalert2';
-import DataEmprendedorComp from './DataEmprendedorComp';
+import DataClienteComp from './DataClienteComp';
 
 function TablaClientesComp() {
     const [clientes, setClientes] = useState(null);
@@ -25,14 +25,6 @@ function TablaClientesComp() {
 
     const handleSearch = (event) => {
         setSearch(event.target.value);
-    };
-
-    const [filters, setFilters] = useState([true, false]);
-
-    const handleFilter = (filter) => {
-        filters.includes(filter)
-            ? setFilters(filters.filter((value) => value !== filter))
-            : setFilters(filters.concat(filter));
     };
 
     const theme = useTheme({
@@ -65,14 +57,7 @@ function TablaClientesComp() {
       `,
     });
 
-    const params = {
-        actividad: '',
-        departamento: '',
-        ciudad: '',
-        nombre: '',
-    };
-
-    const cabezeras = ['Nombre', 'Actividad', 'Ciudad', 'visible'];
+    const cabezeras = ['Nombre', 'Correo', 'Ciudad', 'visible'];
 
     const handleClose = () => {
         setShow(false);
@@ -98,10 +83,13 @@ function TablaClientesComp() {
         });
     };
 
-    const loadClientes = async (param) => {
-        await Axios.post('proveedor/filter/', param)
+    const loadClientes = async () => {
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+        await Axios.get('user/all', {
+            headers: { Authorization: token },
+        })
             .then((response) => {
-                setClientes(response.data.proveedores);
+                setClientes(response.data.usuarios);
                 handleClose();
             })
             .catch((err) => {
@@ -110,50 +98,10 @@ function TablaClientesComp() {
         return clientes;
     };
 
-    const carga = async (id) => {
-        const data = new FormData();
-        data.append('avatar', '');
-        data.append('nombre', '');
-        data.append('telefono', '');
-        data.append('mail', '');
-        data.append('password', '');
-        data.append('direccion', '');
-        data.append('departamento', '');
-        data.append('ciudad', '');
-
-        const token = 'Bearer ' + sessionStorage.getItem('token');
-
-        await Axios.put(`/user/update/${id}`, data, {
-            headers: { Authorization: token },
-        })
-            .then((response) => {
-                const auth = response.data.auth;
-                if (!auth) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: response.data.mensaje,
-                        showConfirmButton: false,
-                        timer: 1500,
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'success',
-                        title: response.data.mensaje,
-                        showConfirmButton: false,
-                        timer: 1500,
-                    });
-                    loadClientes(params);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
-    const deleteEmprendedor = async () => {
+    const deleteCliente = async () => {
         const token = 'Bearer ' + sessionStorage.getItem('token');
         const id = usuarioEditar.current._id;
-        await Axios.delete(`/admin/deleteemprendedor/${id}`, {
+        await Axios.delete(`/user/delete/${id}`, {
             headers: { Authorization: token },
         })
             .then((response) => {
@@ -167,7 +115,7 @@ function TablaClientesComp() {
 
     useEffect(() => {
         if (!clientes) {
-            loadClientes(params);
+            loadClientes();
         }
     });
 
@@ -175,23 +123,8 @@ function TablaClientesComp() {
         const datos = {
             nodes: clientes.filter(
                 (item) =>
-                    (filters.includes(true) &&
-                        (item.nombre
-                            .toLowerCase()
-                            .includes(search.toLowerCase()) ||
-                            item.ciudad
-                                .toLowerCase()
-                                .includes(search.toLowerCase()))) ||
-                    (filters.includes(false) &&
-                        (item.nombre
-                            .toLowerCase()
-                            .includes(search.toLowerCase()) ||
-                            item.actividad
-                                .toLowerCase()
-                                .includes(search.toLowerCase()) ||
-                            item.ciudad
-                                .toLowerCase()
-                                .includes(search.toLowerCase())))
+                    (item.nombre.toLowerCase().includes(search.toLowerCase()) ||
+                    item.ciudad.toLowerCase().includes(search.toLowerCase()))
             ),
         };
 
@@ -207,33 +140,6 @@ function TablaClientesComp() {
                                 onChange={handleSearch}
                             />
                         </label>
-                    </Col>
-                    <Col>
-                        <div>
-                            <label htmlFor="name">
-                                Visible Si:
-                                <input
-                                    id="setup"
-                                    type="checkbox"
-                                    checked={filters.includes(true)}
-                                    onChange={() => handleFilter(true)}
-                                />
-                            </label>
-                        </div>
-                    </Col>
-
-                    <Col>
-                        <div>
-                            <label htmlFor="type">
-                                Visible No:
-                                <input
-                                    id="learn"
-                                    type="checkbox"
-                                    checked={filters.includes(false)}
-                                    onChange={() => handleFilter(false)}
-                                />
-                            </label>
-                        </div>
                     </Col>
                 </Row>
 
@@ -251,15 +157,15 @@ function TablaClientesComp() {
                                 </HeaderRow>
                             </Header>
                             <Body>
-                                {tableList.map((emprendedor, index) => (
-                                    <Row key={index} item={emprendedor}>
+                                {tableList.map((cliente, index) => (
+                                    <Row key={index} item={cliente}>
                                         <Cell>{index + 1} </Cell>
-                                        <Cell> {emprendedor.nombre} </Cell>
+                                        <Cell> {cliente.nombre} </Cell>
                                         {/* <Cell> {emprendedor.mail} </Cell> */}
-                                        <Cell>{emprendedor.actividad} </Cell>
+                                        <Cell>{cliente.email} </Cell>
                                         {/* <Cell>{emprendedor.telefono} </Cell> */}
-                                        <Cell>{emprendedor.ciudad} </Cell>
-                                        
+                                        <Cell>{cliente.ciudad} </Cell>
+
                                         <Cell>
                                             {/* <Row> */}
                                             <Col>
@@ -268,7 +174,7 @@ function TablaClientesComp() {
                                                     variant="outline-success"
                                                     size="sm"
                                                     onClick={() =>
-                                                        handleShow2(emprendedor)
+                                                        handleShow2(cliente)
                                                     }
                                                 >
                                                     Editar
@@ -280,7 +186,7 @@ function TablaClientesComp() {
                                                     variant="outline-danger"
                                                     size="sm"
                                                     onClick={() =>
-                                                        handleShow(emprendedor)
+                                                        handleShow(cliente)
                                                     }
                                                 >
                                                     Eliminar
@@ -297,16 +203,16 @@ function TablaClientesComp() {
                 {/* Eliminar */}
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Eliminar Emprendedor</Modal.Title>
+                        <Modal.Title>Eliminar Cliente</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Esta seguro que desea eliminar el Emprendedor{' '}
+                        Esta seguro que desea eliminar el Cliente{' '}
                         {usuarioEditar.current.nombre}
                     </Modal.Body>
                     <Modal.Footer>
                         <Button
                             variant="danger"
-                            onClick={() => deleteEmprendedor()}
+                            onClick={() => deleteCliente()}
                         >
                             Eliminar
                         </Button>
@@ -323,12 +229,12 @@ function TablaClientesComp() {
                     style={{ height: '600px' }}
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title>Editar Emprendedor</Modal.Title>
+                        <Modal.Title>Editar Cliente</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <DataEmprendedorComp
-                            emprendedor={usuarioEditar.current}
-                            loadEmprendedor={() => loadClientes(params)}
+                        <DataClienteComp
+                            cliente={usuarioEditar.current}
+                            loadCliente={() => loadClientes()}
                         />
                     </Modal.Body>
                 </Modal>
