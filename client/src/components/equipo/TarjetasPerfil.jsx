@@ -1,5 +1,4 @@
 import React from 'react'
-
 import styled from 'styled-components';
 
 function TarjetasPerfil({title, subtitulo,paragraph, email, image}) {
@@ -17,14 +16,14 @@ function TarjetasPerfil({title, subtitulo,paragraph, email, image}) {
 }
 
 const ServiceCardStyled = styled.div`
-    background-color: var(--secondary-color);
-    border-left: 1px solid var(--white-color);
+    background-color: var(--blanco);
+    border-left: 1px solid var(--blanco);
     border-top: 8px solid #7ac0c0;
-    border-right: 1px solid var(--white-color);
-    border-bottom: 1px solid var(--white-color);
+    border-right: 1px solid var(--blanco);
+    border-bottom: 1px solid var(--blanco);
     transition: all .4s ease-in-out;
     &:hover{
-        border-top: 8px solid var(--colorlogo);
+        border-top: 8px solid var(--primario-oscuro);
         transform: translateY(3px);
     }
     .container{
@@ -37,7 +36,7 @@ const ServiceCardStyled = styled.div`
             &::after{
                 content: "";
                 width: 4rem;
-                background-color: var(--colorlogo);
+                background-color: var(--primario-oscuro);
                 height: 3px;
                 position: absolute;;
                 left: 0;

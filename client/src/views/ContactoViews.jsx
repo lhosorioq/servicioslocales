@@ -97,12 +97,12 @@ const ContactPageStyled = styled.section`
                     top: -19px;
                     font-size: 1.1em;
                     display: inline-block;
-                    background-color: var(--primary-color);
+                    background-color: var(--primario-claro);
                     padding:0 .5rem;
                     color: #7ac0c0;
                 }
                 input{
-                    border: 1px solid var(--lineas);
+                    border: 1px solid var(--blanco);
                     outline: none;
                     background: transparent;
                     height: 50px;
@@ -113,7 +113,7 @@ const ContactPageStyled = styled.section`
                 }
                 textarea{
                     background-color: transparent;
-                    border: 1px solid var(--lineas);
+                    border: 1px solid var(--blanco);
                     outline: none;
                     color: inherit;
                     width: 100%;
