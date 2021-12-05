@@ -66,7 +66,7 @@ const ContactPageStyled = styled.section`
             }
         }
         .name{
-            color: var(--primary-color);
+            color: var(--gris-claro);
         }
         .right-content{
             display: grid;
