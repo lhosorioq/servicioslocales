@@ -44,7 +44,7 @@ function CardView() {
                             {' '}
                             Direccion: {proveedor.direccion}{' '}
                         </Card.Text>
-                        <Card.Text> Telefono: {proveedor.telefono} </Card.Text>
+                        <Card.Text> Telefono: {proveedor.telefono1} </Card.Text>
                         <Card.Text> Ciudad: {proveedor.ciudad} </Card.Text>
                         <Card.Text>
                             {' '}

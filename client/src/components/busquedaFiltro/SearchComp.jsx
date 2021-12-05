@@ -7,7 +7,7 @@ import {
     Nav,
     Container,
 } from 'react-bootstrap';
-import { Categorias, Departamentos, Ciudades } from '../libs/search.lib';
+import { Categorias, Departamentos, Ciudades } from '../../libs/search.lib';
 
 function SearchComp(props) {
     const { loadProveedores } = props;

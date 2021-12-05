@@ -16,7 +16,7 @@ export const RoutePrivate = (props) => {
     }
     return (
         <Container style={{width: '100%', height: '800px'}}>
-            <h1>No esta autorizado para acceder a esta ruta</h1>
+            <h2>No esta autorizado para acceder a esta ruta</h2>
         </Container>
     );
 };

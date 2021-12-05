@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Card, Row, Col, Container, Button } from 'react-bootstrap';
-import { Link, Router } from 'react-router-dom';
-import CardView from '../../views/CardView';
-import { URL } from '../libs/url';
+import React, { useState, useEffect } from 'react';
+import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { URL } from '../../libs/url';
 
 function HomeView(props) {
     const { data } = props;
     const uri = URL + `/proveedor/imagen/`;
     const [emprendedores, setEmprendedores] = useState(null);
-    const [visible, setVisible] = useState(false);
-    const emprendedorEditar = useRef(null);
 
     useEffect(() => {
         loadEmprendedores();
@@ -17,11 +14,6 @@ function HomeView(props) {
 
     const loadEmprendedores = () => {
         setEmprendedores(data);
-    };
-
-    const viewProveedor = (item) => {
-        emprendedorEditar.current = item;
-        setVisible(true);
     };
 
     if (emprendedores) {
@@ -54,31 +46,16 @@ function HomeView(props) {
                                                 emprendedor.actividad
                                             }{' '}
                                         </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Email: {emprendedor.mail}{' '}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Direccion: {
-                                                emprendedor.direccion
-                                            }{' '}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Telefono: {
-                                                emprendedor.telefono
-                                            }{' '}
-                                        </Card.Text>
+
                                         <Card.Text>
                                             {' '}
                                             Ciudad: {emprendedor.ciudad}{' '}
                                         </Card.Text>
                                         <Card.Text>
                                             {' '}
-                                            Departamento:{' '}
-                                            {emprendedor.departamento}{' '}
+                                            Me gusta: {emprendedor.likes}{' '}
                                         </Card.Text>
+
                                         <Link to={`/card/${emprendedor._id}`}>
                                             Ver mas...
                                         </Link>
@@ -88,9 +65,6 @@ function HomeView(props) {
                         );
                     })}
                 </Row>
-                {visible ? (
-                    <Link to={`/card/${emprendedorEditar.current}`}></Link>
-                ) : null}
             </Container>
         );
     }
