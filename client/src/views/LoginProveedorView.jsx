@@ -44,7 +44,7 @@ function LoginProveedorView() {
 
     return (
         <MainLayout>
-            <Container>
+            <Container className="contenedor">
                 <Title title={'Login Empresas'} span={'Login Empresas'} />
                 <LoginComp login={loginProveedor} registro="block" rol='/registro-empresa' />
             </Container>

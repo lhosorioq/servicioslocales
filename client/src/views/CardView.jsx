@@ -1,16 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Container, Card, Row, Col, Button,} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { URL } from '../libs/url';
+
 import styled from 'styled-components';
 import Icon from '../components/Icons/Icons'
+=======
+import Swal from 'sweetalert2';
+
 
 function CardView() {
-    
     const { id } = useParams();
     const uri = URL + `/proveedor/imagen/`;
-    const [proveedor, setProveedor] = useState(null)
+    const [proveedor, setProveedor] = useState(null);
 
     const loadProveedor = async (param) => {
         await Axios.get(`/user/proveedor/${id}`)
@@ -23,11 +26,72 @@ function CardView() {
         return proveedor;
     };
 
+    const likes = async () => {
+        const data = { likes: proveedor.likes + 1 };
+
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+
+        if (sessionStorage.getItem('token')) {
+            await Axios.put(`/user/likes/${proveedor._id}`, data, {
+                headers: { Authorization: token },
+            })
+                .then((response) => {
+                    loadProveedor();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Like cargado',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } else
+            Swal.fire({
+                icon: 'error',
+                title: 'No esta registrado',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        
+    };
+
+    const doesnotlikes = async () => {
+        const data = { doesnotlikes: proveedor.doesnotlikes + 1 };
+
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+
+        if (sessionStorage.getItem('token')) {
+            await Axios.put(`/user/likes/${proveedor._id}`, data, {
+                headers: { Authorization: token },
+            })
+                .then((response) => {
+                    loadProveedor();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'DisLike cargado',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } else
+            Swal.fire({
+                icon: 'error',
+                title: 'No esta registrado',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+    };
+
     useEffect(() => {
         if (!proveedor) {
-            loadProveedor()
+            loadProveedor();
         }
-    })
+    });
 
     if (proveedor) {
         return (
@@ -38,6 +102,7 @@ function CardView() {
                 </FuenteH3Styled>
                 <Row>
                     <Col>
+
                     <Card
                     style={{ width: '30rem' }}
                     className="mb-4 shadow p-3 mb-5 bg-white rounded"
@@ -86,20 +151,19 @@ function CardView() {
                         
                     </Card.Body>
                 </Card>
+
+
                     </Col>
                 </Row>
             </Container>
-            
-            
         );
     }
-    
+
     return (
         <Container>
-        <h1>Esperando</h1>
+            <h1>Esperando</h1>
         </Container>
-    )
-    
+    );
 }
 
 const FuenteH3Styled = styled.div`

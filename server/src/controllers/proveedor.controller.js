@@ -105,6 +105,48 @@ export const getProveedorId = async (req, res) => {
     }
 };
 
+// Cargar likes
+export const likes = async (req, res) => {
+    console.log(req.body)
+    const _id = req.params.id;
+    const body = req.body;
+
+    try {
+        await Proveedor.findByIdAndUpdate(_id, body, {
+            new: true,
+        });
+        return res.json({
+            mensaje: 'Like Actualizado',
+        });
+    } catch (error) {
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error',
+            error,
+        });
+    }
+};
+
+// Cargar doesnotlikes
+export const doesnotlikes = async (req, res) => {
+    console.log(req.body);
+    const _id = req.params.id;
+    const body = req.body;
+
+    try {
+        await Proveedor.findByIdAndUpdate(_id, body, {
+            new: true,
+        });
+        return res.json({
+            mensaje: 'Like Actualizado',
+        });
+    } catch (error) {
+        return res.status(400).json({
+            mensaje: 'Ocurrio un error',
+            error,
+        });
+    }
+};
+
 // Consulta base de datos por email y password
 export const getProveedorMailPass = async (req, res) => {
     const proveedor = await Proveedor.findOne(
@@ -189,7 +231,6 @@ export const viewImgProveedor = async (req, res) => {
 
 // Actualizar un proveedor
 export const updateProveedor = async (req, res) => {
-    
     const _id = req.params.id;
     const {
         nombre,
