@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 980px
+    max-width: 9800px;
     height: 100%;
     background-color: #7ac0c0;
     box-shadow: 0 0 5px rgb(0 0 0 / 95%);

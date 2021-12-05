@@ -5,8 +5,9 @@ import  BgW from "./BgSer.jpg";
 import TextoAnimado from "./TextoAnimado";
 
 
+
 const Contenedor = styled.div`
-    height: calc(100vh - 50px);
+    height: calc(70vh - 50px);
     display: flex;
     padding: 20px;
     
@@ -85,10 +86,12 @@ const Right = styled.div`
 
 const Imagen = styled.img`
     width: 100%;
+    box-shadow: 0 0 5px rgb(0 0 0 / 60%);
 `
 
 const Home = () => {
     return (
+      
         <Contenedor>
             <LadoI>
                 <Titulo> <TextoAnimado /> Locales</Titulo>
@@ -98,10 +101,13 @@ const Home = () => {
                 </Descripcion>
                     <Informacion>
                         <Button href='' target='_blank'>Unete a nuestra red</Button>
+                        
                     </Informacion>
+                    
                 </LadoI>
             <Right><Imagen src={BgW}/></Right>
         <FormasAnimadas/>
+        
     </Contenedor>
   );
 };
