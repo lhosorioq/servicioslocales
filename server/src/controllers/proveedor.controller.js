@@ -351,7 +351,7 @@ export const getProveedorAll = async (req, res) => {
 // Consultar todos proveedores visibles
 export const getProveedoresVisibles = async (req, res) => {
     try {
-        const proveedores = await Usuario.find({ visible: true }, { img: 0 });
+        const proveedores = await Proveedor.find({ visible: true }, { img: 0 });
         res.status(200).json({
             proveedores: proveedores,
         });

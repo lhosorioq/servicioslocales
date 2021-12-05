@@ -1,55 +1,84 @@
-import React, {useState} from 'react'
-import { Container,LogoSl, Menu, MenuItem, MenuItemLink, MobileIcon, Wrapper,} from './NavElements'
+import React from 'react'
 import  logo  from '../../assets/img/logosl.png'
-import Icon from './../Icons/Icons'
 import {Link} from 'react-router-dom'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css'
 
-const Navbar = () => {
-    const [showMobileMenu, setshowMobileMenu] = useState(false)
+
+export default function NavbarComp() {
+
+    const salir = () => {
+        sessionStorage.clear();
+        window.location.href= '/'
+    };
+
     return (
-        <Container>
-            <Wrapper>
-            <MobileIcon onClick={() => setshowMobileMenu(!showMobileMenu)}>
-                <Icon className="fas fa-bars"></Icon>
-            </MobileIcon>
-                <Menu open={showMobileMenu}>
-                    <LogoSl>
-                        <img src={logo} width="80" height="80" alt="" />
-                    </LogoSl>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/'} >
-                        Inicio
-                        </MenuItemLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/acerca de'}>
-                        Acerca de
-                        </MenuItemLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/contacto'}>
-                        Contacto
-                        </MenuItemLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/equipo'}>
-                        Equipo
-                        </MenuItemLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/registro-empresa'}>
-                        Registro Empresa
-                        </MenuItemLink>
-                    </MenuItem>
-                    <MenuItem>
-                        <MenuItemLink as={Link} to={'/registro-cliente'}>
-                        Registro Cliente
-                        </MenuItemLink>
-                    </MenuItem> 
-                </Menu>
-            </Wrapper>
-        </Container>
-    )
+        <>
+            <Navbar
+                collapseOnSelect
+                expand="lg"
+                bg="dark"
+                variant="dark"
+                sticky="top"
+            >
+                <Container>
+                    
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Brand as={Link} to={'/'}>
+                        <img src={logo} width="100" height="100" alt="" />
+                    </Navbar.Brand>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="m-auto">
+                            <Nav.Link as={Link} to={'/'}>
+                                Home
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={'/acerca de'}>
+                                Acerca de
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={'/contacto'}>
+                                Contacto
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={'/equipo'}>
+                                Equipo
+                            </Nav.Link>
+                            {sessionStorage.getItem('rol') ? (
+                                <Nav.Link as={Link} to={'/admin/data'}>
+                                    Administrador
+                                </Nav.Link>
+                            ) : null}
+                            {sessionStorage.getItem('nombre') ? (
+                                <Nav.Link as={Link} to={'/emprendedor'}>
+                                    Emprendedor
+                                </Nav.Link>
+                            ) : null}
+                        </Nav>
+                        <Nav>
+                            
+                            <NavDropdown title="Registro" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item href="/registro-cliente">Cliente</NavDropdown.Item>
+                                </NavDropdown>
+
+                                <NavDropdown title="Login" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/login-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item href="/login-cliente">Cliente</NavDropdown.Item>
+                                <NavDropdown.Item href="/login-admin">Administrador</NavDropdown.Item>
+                                </NavDropdown>
+
+                            {sessionStorage.getItem('token') ? (
+                                <Nav.Link
+                                    as={Link}
+                                    onClick={() => salir()}
+                                    to={''}
+                                >
+                                    Salir
+                                </Nav.Link>
+                            ) : null}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </>
+    );
 }
 
-export default Navbar

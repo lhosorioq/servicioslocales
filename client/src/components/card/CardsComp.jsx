@@ -4,7 +4,7 @@ import {URL} from '../libs/url'
 
 function HomeView(props) {
     const { data } = props;
-    const uri = URL + `/user/`;
+    const uri = URL + `/proveedor/imagen/`;
     const [emprendedores, setEmprendedores] = useState(null);
 
     useEffect(() => {

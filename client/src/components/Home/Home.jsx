@@ -89,7 +89,7 @@ const Imagen = styled.img`
 
 const Home = () => {
     return (
-        <Contenedor class="contenedor">
+        <Contenedor className="contenedor">
             <LadoI>
               <Titulo> <TextoAnimado /> Locales</Titulo>
               <Descripcion>
