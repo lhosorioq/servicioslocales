@@ -20,6 +20,7 @@ export default function NavbarComp() {
                 bg="dark"
                 variant="dark"
                 sticky="top"
+                
             >
                 <Container>
                     

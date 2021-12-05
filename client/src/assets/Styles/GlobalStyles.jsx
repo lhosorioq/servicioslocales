@@ -11,12 +11,14 @@ const GlobalStyled = createGlobalStyle`
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
+    
 } 
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border box;
+    
     /* background-color: #7ac0c0; */
 }
 

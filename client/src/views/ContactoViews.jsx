@@ -97,7 +97,7 @@ const ContactPageStyled = styled.section`
                     top: -19px;
                     font-size: 1.1em;
                     display: inline-block;
-                    background-color: var(--background-dark-color);
+                    background-color: var(--primary-color);
                     padding:0 .5rem;
                     color: #7ac0c0;
                 }

@@ -72,6 +72,7 @@ function HomeView(props) {
                                             Departamento:{' '}
                                             {emprendedor.departamento}{' '}
                                         </Card.Text>
+                                        
                                     </Card.Body>
                                 </Card>
                             </Col>
