@@ -7,7 +7,7 @@ import {
     Nav,
     Container,
 } from 'react-bootstrap';
-import { Categorias, Departamentos, Ciudades } from '../libs/search.lib';
+import { Categorias, Departamentos, Ciudades } from '../../libs/search.lib';
 
 function SearchComp(props) {
     const { loadProveedores } = props;
@@ -45,13 +45,13 @@ function SearchComp(props) {
     );
     return (
         <>
-            <Navbar
+            <Navbar className="sl-navbar-search"
                 collapseOnSelect
                 expand="lg"
                 bg="info"
                 variant="dark"
                 sticky="top"
-                style={{top: '120px'}}
+                style={{top: '70px'}}
             >
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

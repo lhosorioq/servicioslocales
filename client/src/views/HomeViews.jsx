@@ -11,7 +11,7 @@ function HomeView() {
 
     const [imagenes, setImagenes] = useState(null);
 
-    const loadEmprendedores = async (param) => {
+    const loadProveedores = async (param) => {
         await Axios.post('/user/filter/', param)
             .then((response) => {
                 setEmprendedores(response.data.proveedores);
@@ -49,7 +49,7 @@ function HomeView() {
             <>
                 <Home/>
                 <SearchComp
-                    loadEmprendedores={(item) => loadEmprendedores(item)}
+                    loadProveedores={(item) => loadProveedores(item)}
                 />
                 <div style={{ minHeight: '1000px' }}>
                     <CardsComp data={emprendedores} />
@@ -61,7 +61,8 @@ function HomeView() {
         <>
             <Home/>
             <SearchComp />
-            <div className="container" style={{ height: '1000px' }}>
+            <div className="container" style={{ height: '1000px', marginTop: '100px' }}>
+                <h2>Cargando Datos</h2>
                 <ProgressBar animated now={45} />
             </div>
             

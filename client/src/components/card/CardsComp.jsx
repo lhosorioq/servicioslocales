@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
-import {URL} from '../libs/url'
+import { Link } from 'react-router-dom';
+import { URL } from '../../libs/url';
 
 function HomeView(props) {
     const { data } = props;
@@ -45,34 +46,19 @@ function HomeView(props) {
                                                 emprendedor.actividad
                                             }{' '}
                                         </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Email: {
-                                                emprendedor.mail
-                                            }{' '}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Direccion: {
-                                                emprendedor.direccion
-                                            }{' '}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {' '}
-                                            Telefono: {
-                                                emprendedor.telefono
-                                            }{' '}
-                                        </Card.Text>
+
                                         <Card.Text>
                                             {' '}
                                             Ciudad: {emprendedor.ciudad}{' '}
                                         </Card.Text>
                                         <Card.Text>
                                             {' '}
-                                            Departamento:{' '}
-                                            {emprendedor.departamento}{' '}
+                                            Me gusta: {emprendedor.likes}{' '}
                                         </Card.Text>
-                                        
+
+                                        <Link to={`/card/${emprendedor._id}`}>
+                                            Ver mas...
+                                        </Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

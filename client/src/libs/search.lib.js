@@ -8,7 +8,15 @@ export const Categorias = [
     'Hoteles',
     'Carnicerias',
     'Ferreterias',
-    'Diseño e Impresion'
+    'Diseño e Impresion',
+    'Plomeria',
+    'Aseadores',
+    'Oficios Varios',
+    'Transporte',
+    'Control de Plagas',
+    'Lavanderia',
+    'Electricistas',
+    'Abogados'
 ];
 
 
@@ -1280,73 +1288,6 @@ export const Departamentos = [
     'VAUPES',
     'VICHADA',
 ];
-
-
-
-
-// export const Ciudades = [
-//     [''],
-//     [
-//         'CALI',
-//         'ALCALA',
-//         'ANDALUCIA',
-//         'ANSERMANUEVO',
-//         'ARGELIA',
-//         'BOLIVAR',
-//         'BUENAVENTURA',
-//         'BUGA',
-//         'BUGALAGRANDE',
-//         'CAICEDONIA',
-//         'CALIMA',
-//         'CANDELARIA',
-//         'CARTAGO',
-//         'DAGUA',
-//         'EL AGUILA',
-//         'EL CAIRO',
-//         'EL CERRITO',
-//         'EL DOVIO',
-//         'FLORIDA',
-//         'GINEBRA',
-//         'GUACARI',
-//         'JAMUNDI',
-//         'LA CUMBRE',
-//         'LA UNION',
-//         'LA VICTORIA',
-//         'OBANDO',
-//         'PALMIRA',
-//         'PRADERA',
-//         'RESTREPO',
-//         'RIOFRIO',
-//         'ROLDANILLO',
-//         'SAN PEDRO',
-//         'SEVILLA',
-//         'TORO',
-//         'TRUJILLO',
-//         'TULUA',
-//         'ULLOA',
-//         'VERSALLES',
-//         'VIJES',
-//         'YOTOCO',
-//         'YUMBO',
-//         'ZARZAL',
-//     ],
-//     [
-//         'PEREIRA',
-//         'APÍA',
-//         'BALBOA',
-//         'BELÉN DE UMBRÍA',
-//         'DOSQUEBRADAS',
-//         'GUÁTICA',
-//         'LA CELIA',
-//         'LA VIRGINIA',
-//         'MARSELLA',
-//         'MISTRATÓ',
-//         'PUEBLO RICO',
-//         'QUINCHÍA',
-//         'SANTA ROSA DE CABAL',
-//         'SANTUARIO',
-//     ],
-// ];
 
 export const Risaralda = [
     'PEREIRA',
