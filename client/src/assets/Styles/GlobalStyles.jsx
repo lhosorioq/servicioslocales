@@ -11,7 +11,6 @@ const GlobalStyled = createGlobalStyle`
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
-
 } 
 
 *{
@@ -19,7 +18,6 @@ const GlobalStyled = createGlobalStyle`
     padding: 0;
     box-sizing: border box;
     /* background-color: #7ac0c0; */
-
 }
 
 body{
@@ -75,9 +73,9 @@ h6{
     padding-bottom: .6rem;
 }
 
-
-
-
-
+.contenedor{
+    max-width: 980px;
+    margin: auto;
+}
 `;
 export default GlobalStyled

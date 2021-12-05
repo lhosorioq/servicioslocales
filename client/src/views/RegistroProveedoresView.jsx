@@ -5,7 +5,7 @@ import { RegistroComp } from '../components/registroProveedor/RegistroComp';
 
 function RegistroProveedoresView() {
     return (
-        <MainLayout>
+        <MainLayout className="contenedor">
             <Title title={'registro empresas'} span={'registro empresas'} />
             <p>&nbsp;</p>
             <p>&nbsp;</p>

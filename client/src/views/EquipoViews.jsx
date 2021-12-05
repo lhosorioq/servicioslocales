@@ -6,7 +6,7 @@ import Equipo from '../components/equipo/Equipo'
 export default class EquipoViews extends Component {
     render() {
         return (
-            <MainLayout>
+            <MainLayout className="contenedor">
                 <Equipo />
             </MainLayout>
         )
