@@ -14,7 +14,7 @@ export default function NavbarComp() {
 
     return (
         <>
-            <Navbar
+            <Navbar className="sl-navbar"
                 collapseOnSelect
                 expand="lg"
                 bg="dark"
@@ -25,7 +25,7 @@ export default function NavbarComp() {
                     
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Brand as={Link} to={'/'}>
-                        <img src={logo} width="100" height="100" alt="" />
+                        <img src={logo} width="70" height="70" alt="" />
                     </Navbar.Brand>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
@@ -55,7 +55,7 @@ export default function NavbarComp() {
                         <Nav>
                             
                             <NavDropdown title="Registro" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbarItem" href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
                                 <NavDropdown.Item href="/registro-cliente">Cliente</NavDropdown.Item>
                                 </NavDropdown>
 
