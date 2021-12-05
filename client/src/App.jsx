@@ -16,6 +16,7 @@ import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
 import Homeviews from './views/HomeViews';
 import CardView from './views/CardView';
+import DataEmprendedorView from './views/DataEmprendedorView';
 
 function App() {
     return (
@@ -53,9 +54,12 @@ function App() {
                     <RegistroClientesView />
                 </Route>
                 <Route path="/card/:id" exact>
-                    <CardView/>
+                    <CardView />
                 </Route>
-                <RoutePrivate path="/admin/data" exact>
+                <RoutePrivate path="/proveedor" exact>
+                    <DataEmprendedorView/>
+                </RoutePrivate>
+                <RoutePrivate path="/admin" exact>
                     <DataAdminView />
                 </RoutePrivate>
                 <RoutePrivate path="/logout" exact></RoutePrivate>

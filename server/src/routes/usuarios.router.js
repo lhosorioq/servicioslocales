@@ -51,7 +51,7 @@ router.get('/visible', getProveedoresVisibles);
 router.post('/filter', getProveedoresFilter);
 
 // Ver imagen de proveedor
-router.get('/proveedor/:id', viewImgProveedor);
+router.get('/proveedorimg/:id', viewImgProveedor);
 
 // Buscar todos los Usuarios
 router.get('/all', verifyToken, getUsuariosAll);
