@@ -8,9 +8,22 @@ const GlobalStyled = createGlobalStyle`
     --gris-oscuro: #4C5057;
     --gris-claro: #f1f1f1;
     --salmon: #E78F6D;
+
+    --primary-color: #f1f1f1;
+    --secondary-color: #d7dbdf;
+    --border-color: #000000;
+    --background-light-color-2: rgba(199, 197, 110, 0.288);
+    --white-color: #F6EDD8;
+    --fondocolor: #afadadd6;
+    --colorlogo: #396666;
+    --lineas: #ffffff;
+    --botton: #e7906dc0
+    
+} 
     --negro: #000;
     --blanco: #fff;    
 }
+
 
 *{
     margin: 0;
@@ -49,7 +62,10 @@ a{
 
 h1{
     font-size: 4rem;
-    color: var(--blanco);
+
+    color: var(--gris-oscuro);
+    font-family: 'Montserrat Alternates', sans-serif;
+
     span{
         font-size: 4rem;
         color: #000000;

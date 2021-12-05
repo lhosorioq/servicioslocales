@@ -10,7 +10,7 @@ function Button({title}) {
 }
 
 const PrimaryButtonStyled = styled.a`
-    background-color: var(--fondocolor);
+    background-color: var(--botton);
     padding: .8rem 2.5rem;
     color: black;
     cursor: pointer;
@@ -18,6 +18,7 @@ const PrimaryButtonStyled = styled.a`
     font-size: inherit;
     position: relative;
     transition: all .4s ease-in-out;
+    box-shadow: 0 15px 14px rgb(0 42 177 / 10%);
     
     &::after{
         content: "";

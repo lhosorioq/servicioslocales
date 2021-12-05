@@ -102,7 +102,9 @@ const ContactPageStyled = styled.section`
                     color: #7ac0c0;
                 }
                 input{
-                    border: 1px solid var(--blanco);
+
+                    border: 1px solid var(--);
+
                     outline: none;
                     background: transparent;
                     height: 50px;
