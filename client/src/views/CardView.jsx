@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Container, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { URL } from '../libs/url';
+import Swal from 'sweetalert2';
 
 function CardView() {
     
@@ -19,6 +20,71 @@ function CardView() {
                 console.log(err);
             });
         return proveedor;
+    };
+
+    const likes = async () => {
+
+        const data = proveedor.likes + 1
+
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+
+        await Axios.put(`/user/likes/${proveedor._id}`, data, {
+            headers: { Authorization: token },
+        })
+            .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No tiene permiso para esto',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    loadProveedor();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const doesnotlikes = async () => {
+        const data = proveedor.doesnotlikes + 1;
+
+        const token = 'Bearer ' + sessionStorage.getItem('token');
+
+        await Axios.put(`/user/likes/${proveedor._id}`, data, {
+            headers: { Authorization: token },
+        })
+            .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No tiene permiso para esto',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    loadProveedor();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     useEffect(() => {
