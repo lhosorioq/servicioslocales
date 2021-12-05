@@ -19,13 +19,12 @@ export default function NavbarComp() {
                 expand="lg"
                 bg="dark"
                 variant="dark"
-                sticky="top"
-            >
+                sticky="top">
                 <Container>
                     
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Brand as={Link} to={'/'}>
-                        <img src={logo} width="70" height="70" alt="" />
+                        <img src={logo} width="50" height="50" alt="" />
                     </Navbar.Brand>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
@@ -55,14 +54,14 @@ export default function NavbarComp() {
                         <Nav>
                             
                             <NavDropdown title="Registro" id="basic-nav-dropdown">
-                                <NavDropdown.Item className="sl-navbarItem" href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
-                                <NavDropdown.Item href="/registro-cliente">Cliente</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbar" href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbar" href="/registro-cliente">Cliente</NavDropdown.Item>
                                 </NavDropdown>
 
                                 <NavDropdown title="Login" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/login-empresa">Empresa/Persona</NavDropdown.Item>
-                                <NavDropdown.Item href="/login-cliente">Cliente</NavDropdown.Item>
-                                <NavDropdown.Item href="/login-admin">Administrador</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbar" href="/login-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbar" href="/login-cliente">Cliente</NavDropdown.Item>
+                                <NavDropdown.Item className="sl-navbar" href="/login-admin">Administrador</NavDropdown.Item>
                                 </NavDropdown>
 
                             {sessionStorage.getItem('token') ? (

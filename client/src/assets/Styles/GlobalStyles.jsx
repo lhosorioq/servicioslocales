@@ -83,14 +83,17 @@ h6{
 .sl-navbar{
     background-color: var(--verde-claro) !important;
     font-size: 1rem !important;
-    height: 70px;
 }
 .sl-navbar a{
     color: #fafafa !important;
     font-size: 1.2rem !important;
 }
-.sl-navbarItem a{
+.sl-navbarItem div{
     color: #fafafa !important;
+    font-size: 1rem !important;
+}
+.sl-navbar-search{
+    background-color: var(--verde-oscuro) !important;
     font-size: 1rem !important;
 }
 .sl-footer{
