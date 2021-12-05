@@ -45,7 +45,7 @@ function SearchComp(props) {
     );
     return (
         <>
-            <Navbar
+            <Navbar className="sl-navbar-search"
                 collapseOnSelect
                 expand="lg"
                 bg="info"
