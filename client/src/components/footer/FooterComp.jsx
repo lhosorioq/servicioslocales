@@ -4,7 +4,7 @@ import corazonColombia from '../../assets/img/corazonColombia_30x38.png';
 
 function FooterComp() {
     return (
-        <Footer>
+        <Footer className="sl-footer">
             <Footer.Wrapper>
                 <Footer.Row>
                     <Footer.Column>

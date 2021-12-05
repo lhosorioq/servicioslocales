@@ -3,6 +3,10 @@ import {createGlobalStyle} from "styled-components"
 const GlobalStyled = createGlobalStyle`
 
 :root{
+    --verde-claro: #7CBFBF;
+    --verde-oscuro: #396666;
+    --gris-oscuro: #4C5057;
+    --salmon: #E78F6D;
     --primary-color: #f1f1f1;
     --secondary-color: #d7dbdf;
     --border-color: #000000;
@@ -17,7 +21,6 @@ const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border box;
-    /* background-color: #7ac0c0; */
 }
 
 body{
@@ -76,6 +79,23 @@ h6{
 .contenedor{
     max-width: 980px;
     margin: auto;
+}
+.sl-navbar{
+    background-color: var(--verde-claro) !important;
+    font-size: 1rem !important;
+    height: 70px;
+}
+.sl-navbar a{
+    color: #fafafa !important;
+    font-size: 1.2rem !important;
+}
+.sl-navbarItem a{
+    color: #fafafa !important;
+    font-size: 1rem !important;
+}
+.sl-footer{
+    background-color: var(--gris-oscuro) !important;
+    font-size: 1rem !important;
 }
 `;
 export default GlobalStyled
