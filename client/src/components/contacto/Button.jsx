@@ -10,14 +10,15 @@ function Button({title}) {
 }
 
 const PrimaryButtonStyled = styled.a`
-    background-color: var(--primary-color);
+    background-color: var(--fondocolor);
     padding: .8rem 2.5rem;
-    color: white;
+    color: black;
     cursor: pointer;
     display: inline-block;
     font-size: inherit;
     position: relative;
     transition: all .4s ease-in-out;
+    
     &::after{
         content: "";
         position: absolute;

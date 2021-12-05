@@ -14,7 +14,7 @@ import { RoutePrivate } from './components/routes/RoutePrivate.jsx';
 import ContactoViews from './views/ContactoViews';
 import EquipoViews from './views/EquipoViews';
 import RegistroClientesView from './views/RegistroClientesView';
-import Home from './components/Home/Home';
+import Homeviews from './views/HomeViews';
 
 function App() {
     return (
@@ -22,7 +22,7 @@ function App() {
             <Navbar />
             <Switch>
                 <Route path="/" exact>
-                    <Home />
+                    <Homeviews />
                 </Route>
                 <Route path="/conocenos" exact>
                     {/* <Conocenos /> */}

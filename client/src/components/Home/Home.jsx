@@ -5,8 +5,9 @@ import  BgW from "./BgSer.jpg";
 import TextoAnimado from "./TextoAnimado";
 
 
+
 const Contenedor = styled.div`
-    height: calc(100vh - 50px);
+    height: calc(70vh - 50px);
     display: flex;
     padding: 20px;
     
@@ -21,7 +22,6 @@ const LadoI = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
   @media only screen and (max-width: 480px) {
     width: 100%;
     height: 100%;
@@ -39,8 +39,8 @@ const Titulo = styled.h1`
 `;
 
 const Descripcion = styled.p`
-  width: 60%;
-  font-size: 20px;
+  width: 50%;
+  font-size: 16px;
   margin-top: 20px;
   @media only screen and (max-width: 480px) {
     width: 100%;
@@ -49,7 +49,7 @@ const Descripcion = styled.p`
 
 const Informacion = styled.div`
   width: 60%;
-  margin-top: 50px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,12 +72,11 @@ const Button = styled.button`
 
     @media only screen and (max-width: 480px) {
         margin-bottom: 20px;
-}
-
+  }
 `;
 
 const Right = styled.div`
-  width: 40%;
+  width: 30%;
   @media only screen and (max-width: 480px) {
     display: none;
   }
@@ -85,23 +84,25 @@ const Right = styled.div`
 
 const Imagen = styled.img`
     width: 100%;
+    box-shadow: 0 0 5px rgb(0 0 0 / 60%);
 `
 
 const Home = () => {
     return (
-        <Contenedor>
+        <Contenedor class="contenedor">
             <LadoI>
-                <Titulo> <TextoAnimado /> Locales</Titulo>
-                <Descripcion>
-                    Creemos que la conexión entre usarios y proveedores de servicios es importante.
-                    Lo que conectamos a lo que necesitas
-                </Descripcion>
-                    <Informacion>
-                        <Button href='' target='_blank'>Unete a nuestra red</Button>
-                    </Informacion>
-                </LadoI>
+              <Titulo> <TextoAnimado /> Locales</Titulo>
+              <Descripcion>
+                  Creemos que la conexión entre usarios y proveedores de servicios es importante.
+                  Lo que conectamos a lo que necesitas
+              </Descripcion>
+              <Informacion>
+                  <Button href='' target='_blank'>Unete a nuestra red</Button>
+              </Informacion>
+            </LadoI>
             <Right><Imagen src={BgW}/></Right>
         <FormasAnimadas/>
+        
     </Contenedor>
   );
 };
