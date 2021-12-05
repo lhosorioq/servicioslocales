@@ -31,7 +31,7 @@ const PrimaryButtonStyled = styled.a`
     }
     &:hover::after{
         width: 100%;
-        background-color: var(--white-color);
+        background-color: var(--blanco);
     }
 `;
 export default Button;

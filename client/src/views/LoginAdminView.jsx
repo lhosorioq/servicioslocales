@@ -43,7 +43,7 @@ function LoginAdminView() {
 
     return (
         <MainLayout>
-            <Container>
+            <Container className="contenedor">
                 <Title
                     title={'Login Administrador'}
                     span={'Login Administrador'}

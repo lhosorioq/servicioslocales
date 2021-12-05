@@ -44,7 +44,7 @@ function LoginClienteView() {
 
     return (
         <MainLayout>
-            <Container>
+            <Container className="contenedor">
                 <Title
                     title={'Login Clientes'}
                     span={'Login Clientes'}
