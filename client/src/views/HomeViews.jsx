@@ -14,7 +14,7 @@ function HomeView() {
     const loadEmprendedores = async (param) => {
         await Axios.post('/user/filter/', param)
             .then((response) => {
-                setEmprendedores(response.data.emprendedores);
+                setEmprendedores(response.data.proveedores);
             })
             .catch((err) => {
                 console.log(err);
@@ -31,9 +31,9 @@ function HomeView() {
                         url: `/user/visible`,
                         responseType: 'json',
                     });
-                    setEmprendedores(response.data.emprendedores);
+                    setEmprendedores(response.data.proveedores);
 
-                    setImagenes(imagenes ?? response.data.emprendedores);
+                    setImagenes(imagenes ?? response.data.proveedores);
 
                     return emprendedores;
                 } catch (error) {
