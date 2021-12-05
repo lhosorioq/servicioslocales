@@ -41,14 +41,14 @@ export default function NavbarComp() {
                             <Nav.Link as={Link} to={'/equipo'}>
                                 Equipo
                             </Nav.Link>
-                            {sessionStorage.getItem('rol') ? (
-                                <Nav.Link as={Link} to={'/admin/data'}>
+                            {sessionStorage.getItem('rol') === 'admin'? (
+                                <Nav.Link as={Link} to={'/admin'}>
                                     Administrador
                                 </Nav.Link>
                             ) : null}
-                            {sessionStorage.getItem('nombre') ? (
-                                <Nav.Link as={Link} to={'/emprendedor'}>
-                                    Emprendedor
+                            {sessionStorage.getItem('rol') === 'empresa'? (
+                                <Nav.Link as={Link} to={'/proveedor'}>
+                                    Proveedor
                                 </Nav.Link>
                             ) : null}
                         </Nav>

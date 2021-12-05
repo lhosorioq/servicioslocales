@@ -44,9 +44,6 @@ function App() {
                 <Route path="/login-admin" exact>
                     <LoginAdminView />
                 </Route>
-                <RoutePrivate path="/emprendedor" exact>
-                    {/* <DataEmprendedorView /> */}
-                </RoutePrivate>
                 <Route path="/registro-empresa" exact>
                     <RegistroProveedoresView />
                 </Route>
