@@ -17,7 +17,7 @@ const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border box;
-    /* background-color: #7ac0c0; */
+    font-family: 'Raleway', sans-serif;
 }
 
 body{
@@ -50,7 +50,7 @@ a{
 }
 
 h1{
-    font-size: 4rem;
+    font-size: 3rem;
     color: var(--white-color);
     span{
         font-size: 4rem;
@@ -74,8 +74,22 @@ h6{
 }
 
 .contenedor{
-    max-width: 980px;
+    max-width: 980px !important;
     margin: auto;
+}
+
+.sl-navbar{
+    background-color: #7ac0c0 !important;
+    color: #396666 !important;
+    max-witdh: 980px
+}
+.sl-navbar a {
+    color: #396666 !important;
+    font-size: 16px !important;
+}
+.sl-buscador{
+    background-color: #396666 !important;
+    color: #F6EBD8 !important;
 }
 `;
 export default GlobalStyled

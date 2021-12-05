@@ -45,13 +45,13 @@ function SearchComp(props) {
     );
     return (
         <>
-            <Navbar
+            <Navbar className="sl-buscador"
                 collapseOnSelect
                 expand="lg"
                 bg="info"
                 variant="dark"
                 sticky="top"
-                style={{top: 0}}
+                style={{top: '70px'}}
             >
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -87,7 +87,7 @@ function SearchComp(props) {
                             <Form className="d-flex">
                                 <FormControl
                                     type="search"
-                                    placeholder="Buscar"
+                                    placeholder="Palabra"
                                     className="me-2"
                                     aria-label="Buscar"
                                     value={nombre}
@@ -96,8 +96,7 @@ function SearchComp(props) {
                                 <Button
                                     variant="outline-primary"
                                     onClick={load}
-                                >
-                                    Search
+                                >Buscar
                                 </Button>
                             </Form>
                         </Nav>

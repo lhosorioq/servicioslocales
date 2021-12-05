@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
-
 export default function NavbarComp() {
 
     const salir = () => {
@@ -14,25 +13,23 @@ export default function NavbarComp() {
 
     return (
         <>
-            <Navbar
+            <Navbar className="sl-navbar"
                 collapseOnSelect
                 expand="lg"
                 bg="dark"
                 variant="dark"
-                sticky="top"
-            >
-                <Container>
-                    
+                sticky="top" >
+                <Container >
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Brand as={Link} to={'/'}>
-                        <img src={logo} width="100" height="100" alt="" />
+                        <img src={logo} width="50" height="50" alt="" />
                     </Navbar.Brand>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
                             <Nav.Link as={Link} to={'/'}>
-                                Home
+                                Inicio
                             </Nav.Link>
-                            <Nav.Link as={Link} to={'/acerca de'}>
+                            <Nav.Link as={Link} to={'/acerca'}>
                                 Acerca de
                             </Nav.Link>
                             <Nav.Link as={Link} to={'/contacto'}>
@@ -53,17 +50,16 @@ export default function NavbarComp() {
                             ) : null}
                         </Nav>
                         <Nav>
-                            
-                            <NavDropdown title="Registro" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
-                                <NavDropdown.Item href="/registro-cliente">Cliente</NavDropdown.Item>
-                                </NavDropdown>
+                            <NavDropdown title="Registro"  id="basic-nav-dropdown">
+                                <NavDropdown.Item className="color-navbar" href="/registro-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item className="color-navbar" href="/registro-cliente">Cliente</NavDropdown.Item>
+                            </NavDropdown>
 
-                                <NavDropdown title="Login" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/login-empresa">Empresa/Persona</NavDropdown.Item>
-                                <NavDropdown.Item href="/login-cliente">Cliente</NavDropdown.Item>
-                                <NavDropdown.Item href="/login-admin">Administrador</NavDropdown.Item>
-                                </NavDropdown>
+                            <NavDropdown title="Login" id="basic-nav-dropdown">
+                                <NavDropdown.Item className="color-navbar" href="/login-empresa">Empresa/Persona</NavDropdown.Item>
+                                <NavDropdown.Item className="color-navbar" href="/login-cliente">Cliente</NavDropdown.Item>
+                                <NavDropdown.Item className="color-navbar" href="/login-admin">Administrador</NavDropdown.Item>
+                            </NavDropdown>
 
                             {sessionStorage.getItem('token') ? (
                                 <Nav.Link
