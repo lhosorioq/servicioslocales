@@ -45,13 +45,13 @@ function SearchComp(props) {
     );
     return (
         <>
-            <Navbar
+            <Navbar className="sl-navbar-search"
                 collapseOnSelect
                 expand="lg"
                 bg="info"
                 variant="dark"
                 sticky="top"
-                style={{top: '126px'}}
+                style={{top: '70px'}}
             >
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
