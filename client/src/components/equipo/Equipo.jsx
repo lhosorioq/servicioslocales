@@ -63,6 +63,7 @@ const EquipoStyled = styled.section`
         display: grid;
         grid-template-columns: repeat(3,1fr);
         grid-gap: 1.5rem;
+        font-family: 'Raleway', sans-serif;
         @media screen and (max-width:1000px){
             flex-direction: column;
         }

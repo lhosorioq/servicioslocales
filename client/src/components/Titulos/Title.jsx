@@ -1,30 +1,26 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Title = ({title, span}) => {
+const Title = ({title,}) => {
     return (
         <TitleStyled>
-            <h2>{title} <b><span>{span}</span></b></h2>
+            <h2>{title} </h2>
         </TitleStyled>
     )
 }
 
 const TitleStyled = styled.div`
-    position: relative;
-    h2{
-        color: #7ac0c0;
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: .7rem;
-        @media screen and (max-width: 496px){
+    /* position: relative; */
+    
+        /* padding-bottom: .7rem; */
+
+        /* @media screen and (max-width: 496px){
             font-size: 0.8rem;
         }
         @media screen and (max-width: 370px){
             font-size: 2rem;
-        }
-        &::before{
+        } */
+        /* &::before{
             content: "";
             position: absolute;
             bottom: 0;
@@ -45,8 +41,8 @@ const TitleStyled = styled.div`
             border-radius: 15px;
             left: 0;
             top: 90%;
-        }
-        span{
+        } */
+        /* span{
             font-weight: 900;
             color: rgba(25,29,43,.75);
             font-size: 3rem;
@@ -63,8 +59,8 @@ const TitleStyled = styled.div`
             @media screen and (max-width: 370px){
                 font-size: 2rem;
             }
-        }
-    }
+        } */
+    
 `;
 
 export default Title

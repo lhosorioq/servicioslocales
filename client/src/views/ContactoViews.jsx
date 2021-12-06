@@ -80,6 +80,7 @@ const ContactPageStyled = styled.section`
                 color: #7ac0c0;
                 padding: 1rem 0;
                 font-size: 1.8rem;
+                font-family: 'Raleway', sans-serif;
             }
         }
         .form{
