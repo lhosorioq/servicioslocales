@@ -17,12 +17,13 @@ const GlobalStyled = createGlobalStyle`
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
-    --botton: #e7906dc0
-    
-} 
+    --botton: #e7906dc0;
     --negro: #000;
-    --blanco: #fff;    
+    --blanco: #fff;
 }
+
+        
+
 
 
 *{

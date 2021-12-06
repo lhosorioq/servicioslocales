@@ -142,7 +142,7 @@ function CardView() {
                     </Col>
                     <Col>
                         <Card
-                            style={{ width: '45rem' }}
+                            style={{ width: '28rem' }}
                             className="mb-4 shadow p-3 mb-5 bg-white rounded"
                         >
                             <Card.Body>
