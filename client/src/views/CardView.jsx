@@ -5,9 +5,10 @@ import { useParams } from 'react-router-dom';
 import { URL } from '../libs/url';
 
 import styled from 'styled-components';
-import Icon from '../components/Icons/Icons'
-import Swal from 'sweetalert2';
 
+import Icon from '../components/Icons/Icons'
+
+import Swal from 'sweetalert2';
 
 function CardView() {
     const { id } = useParams();
