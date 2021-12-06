@@ -64,7 +64,7 @@ router.get('/all', verifyToken, getUsuariosAll);
 router.get('/:id', verifyToken, getUsuarioId);
 
 // Ver imagen de Usuario
-router.get('/imagen/:id', verifyToken, viewImgUsuario);
+router.get('/imagen/:id', viewImgUsuario);
 
 // Actualizar Usuarios
 router.put('/update/:id', upload.single('avatar'), verifyToken, updateUsuario);
