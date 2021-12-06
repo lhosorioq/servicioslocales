@@ -42,19 +42,19 @@ function App() {
                 <Route path="/equipo" exact>
                     <EquipoViews />
                 </Route>
-                <Route path="/login-empresa" exact>
+                <Route path="/loginempresa" exact>
                     <LoginProveedorView />
                 </Route>
-                <Route path="/login-cliente" exact>
+                <Route path="/logincliente" exact>
                     <LoginClienteView />
                 </Route>
-                <Route path="/login-admin" exact>
+                <Route path="/loginadmin" exact>
                     <LoginAdminView />
                 </Route>
-                <Route path="/registro-empresa" exact>
+                <Route path="/registroempresa" exact>
                     <RegistroProveedoresView />
                 </Route>
-                <Route path="/registro-cliente" exact>
+                <Route path="/registrocliente" exact>
                     <RegistroClientesView />
                 </Route>
                 <Route path="/card/:id" exact>
