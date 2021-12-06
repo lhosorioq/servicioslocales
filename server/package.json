@@ -1,32 +1,38 @@
 {
-  "name": "servidor",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "babel-node src/index.js --exec",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js --exec babel-node"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.12",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.3"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "nodemon": "^2.0.14"
-  }
+    "name": "servidor",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "babel-node src/index.js --exec",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon src/index.js --exec babel-node"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.0.12",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.3",
+        "@babel/cli": "^7.16.0",
+        "@babel/core": "^7.16.0",
+        "@babel/node": "^7.16.0",
+        "@babel/preset-env": "^7.16.4",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.16.0",
+        "@babel/core": "^7.16.0",
+        "@babel/node": "^7.16.0",
+        "@babel/preset-env": "^7.16.4",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "nodemon": "^2.0.14"
+    }
 }
