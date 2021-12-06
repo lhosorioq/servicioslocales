@@ -13,7 +13,24 @@ const Square = styled.div`
   animation: square 20s linear alternate infinite;
   @keyframes square {
     to {
-      transform: translate(100vw, 100vh);
+      transform: translate(97vw, 70vh);
+    }
+  }
+`;
+
+const Hexagonal = styled.div`
+  width: 60px;
+  height: 60px;
+  background-color: #e78f6d;
+  opacity: 0.7;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  z-index: -1;
+  animation: hex 20s linear alternate infinite;
+  @keyframes hex {
+    to {
+      transform: translate(95vw, 30vh);
     }
   }
 `;
@@ -73,6 +90,7 @@ const FormasAnimadas = () => {
   return (
     <>
       <Square />
+      <Hexagonal/>
       <Circle />
       <Rect />
       <Trian />

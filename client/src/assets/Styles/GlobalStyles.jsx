@@ -3,10 +3,12 @@ import {createGlobalStyle} from "styled-components"
 const GlobalStyled = createGlobalStyle`
 
 :root{
-    --verde-claro: #7CBFBF;
-    --verde-oscuro: #396666;
+    --primario-claro: #7CBFBF;
+    --primario-oscuro: #396666;
     --gris-oscuro: #4C5057;
+    --gris-claro: #f1f1f1;
     --salmon: #E78F6D;
+
     --primary-color: #f1f1f1;
     --secondary-color: #d7dbdf;
     --border-color: #000000;
@@ -15,8 +17,13 @@ const GlobalStyled = createGlobalStyle`
     --fondocolor: #afadadd6;
     --colorlogo: #396666;
     --lineas: #ffffff;
+    --botton: #e7906dc0
     
 } 
+    --negro: #000;
+    --blanco: #fff;    
+}
+
 
 *{
     margin: 0;
@@ -25,7 +32,7 @@ const GlobalStyled = createGlobalStyle`
 }
 
 body{
-    background-color: var(--primary-color);
+    background-color: var(--gris-claro);
     color: var(--font-light-color);
     transition: all .4s ease-in-out;
 }
@@ -55,7 +62,10 @@ a{
 
 h1{
     font-size: 4rem;
-    color: var(--white-color);
+
+    color: var(--gris-oscuro);
+    font-family: 'Montserrat Alternates', sans-serif;
+
     span{
         font-size: 4rem;
         color: #000000;
@@ -72,7 +82,7 @@ span{
     color: var(--black-color);
 }
 h6{
-    color: var(--white-color);
+    color: var(--blanco);
     font-size: 1.2rem;
     padding-bottom: .6rem;
 }
@@ -82,7 +92,7 @@ h6{
     margin: auto;
 }
 .sl-navbar{
-    background-color: var(--verde-claro) !important;
+    background-color: var(--primario-claro) !important;
     font-size: 1rem !important;
 }
 .sl-navbar a{
@@ -94,7 +104,7 @@ h6{
     font-size: 1rem !important;
 }
 .sl-navbar-search{
-    background-color: var(--verde-oscuro) !important;
+    background-color: var(--primario-oscuro) !important;
     font-size: 1rem !important;
 }
 .sl-footer{
