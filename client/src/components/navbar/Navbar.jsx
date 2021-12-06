@@ -63,13 +63,13 @@ export default function NavbarComp() {
                             >
                                 <NavDropdown.Item
                                     className="sl-navbar"
-                                    href="/registro-empresa"
+                                    href="/registroempresa"
                                 >
                                     Empresa/Persona
                                 </NavDropdown.Item>
                                 <NavDropdown.Item
                                     className="sl-navbar"
-                                    href="/registro-cliente"
+                                    href="/registrocliente"
                                 >
                                     Cliente
                                 </NavDropdown.Item>
@@ -78,19 +78,19 @@ export default function NavbarComp() {
                             <NavDropdown title="Login" id="basic-nav-dropdown">
                                 <NavDropdown.Item
                                     className="sl-navbar"
-                                    href="/login-empresa"
+                                    href="/loginempresa"
                                 >
                                     Empresa/Persona
                                 </NavDropdown.Item>
                                 <NavDropdown.Item
                                     className="sl-navbar"
-                                    href="/login-cliente"
+                                    href="/logincliente"
                                 >
                                     Cliente
                                 </NavDropdown.Item>
                                 <NavDropdown.Item
                                     className="sl-navbar"
-                                    href="/login-admin"
+                                    href="/loginadmin"
                                 >
                                     Administrador
                                 </NavDropdown.Item>

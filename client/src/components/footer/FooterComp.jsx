@@ -17,10 +17,10 @@ function FooterComp() {
 
                     <Footer.Column>
                         <Footer.Title>Registro</Footer.Title>
-                        <Footer.Link href="/registro-empresa">Empresas/Personas</Footer.Link>
-                        <Footer.Link href="/registro-cliente">Clientes</Footer.Link>
+                        <Footer.Link href="/registroempresa">Empresas/Personas</Footer.Link>
+                        <Footer.Link href="/registrocliente">Clientes</Footer.Link>
                         <Footer.Link href="#">Ranking Calificaciones</Footer.Link>
-                        <Footer.Link href="/login-admin">Administrador</Footer.Link>
+                        <Footer.Link href="/loginadmin">Administrador</Footer.Link>
                     </Footer.Column>
 
                     <Footer.Column>
