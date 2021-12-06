@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
-
 export default function NavbarComp() {
 
     const salir = () => {
@@ -32,7 +31,7 @@ export default function NavbarComp() {
                             <Nav.Link as={Link} to={'/'}>
                                 Home
                             </Nav.Link>
-                            <Nav.Link as={Link} to={'/acerca de'}>
+                            <Nav.Link as={Link} to={'/acercade'}>
                                 Acerca de
                             </Nav.Link>
                             <Nav.Link as={Link} to={'/contacto'}>
