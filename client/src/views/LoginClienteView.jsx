@@ -8,7 +8,7 @@ import { MainLayout } from '../assets/Styles/Layouts';
 
 function LoginClienteView() {
     const loginCliente = async (data) => {
-        const cliente = { mail: data.email, password: data.password };
+        const cliente = { email: data.email, password: data.password };
         await Axios.post('user/login', cliente)
             .then((respuesta) => {
                 const auth = respuesta.data.auth;

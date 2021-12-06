@@ -101,6 +101,7 @@ const carga = async (values, file, departamento, ciudad) => {
                 const id = response.data.id;
                 sessionStorage.setItem('token', token);
                 sessionStorage.setItem('id', id);
+                sessionStorage.setItem('rol', 'empresa')
                 window.location.href = '/proveedor'; //pendiente ruta de pagina a la que pasara despues de login
 
                 Swal.fire({
