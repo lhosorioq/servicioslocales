@@ -33,7 +33,7 @@ function App() {
                 <Route path="/" exact>
                     <Homeviews />
                 </Route>
-                <Route path="/acerca de" exact>
+                <Route path="/acercade" exact>
                     <AcercaDeViews/>
                 </Route>
                 <Route path="/contacto" exact>
