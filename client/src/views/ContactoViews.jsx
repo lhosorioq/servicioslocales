@@ -11,8 +11,8 @@ const ContactoViews = () => {
     const email = <Icon className="fas fa-envelope" />
     const location = <Icon className="fas fa-map-marker-alt" />
     return (
-        <MainLayout >
-            <ContactPageStyled className="contenedor">
+        <MainLayout className="contenedor">
+            <ContactPageStyled >
                 <Title title={'Contacto'} span={'Contacto'} />
                 <InnerLayout className={'contact-section'}>
                     <div className="left-content">
