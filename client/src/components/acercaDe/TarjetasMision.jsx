@@ -27,7 +27,7 @@ const ServiceCardStyled = styled.div`
         transform: translateY(3px);
     }
     .container{
-        padding: 10rem;
+        padding: 3rem;
         h4{
             color: var(--font-light-color);
             font-size: 2rem;
@@ -50,7 +50,7 @@ const ServiceCardStyled = styled.div`
         }
         p{
             padding: 1rem 0;
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-family: 'Raleway', sans-serif;
             
     }
