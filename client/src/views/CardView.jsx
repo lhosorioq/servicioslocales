@@ -126,19 +126,21 @@ function CardView() {
                     </Col>
                     <Col>
                     <Card
-                    style={{ width: '45rem' }}
+                    style={{ width: '30rem' }}
                     className="mb-4 shadow p-3 mb-5 bg-white rounded"
                 >
                     <Card.Body>
+                        <FuenteH3Styled >
+                        <h3> Servicio: {proveedor.actividad} </h3>
+                        </FuenteH3Styled>
                         
-                        <Card.Text> Servicio: {proveedor.actividad} </Card.Text>
-                        <Card.Text> Email: {proveedor.mail} </Card.Text>
                         <Card.Text>
                             {' '}
                             Direccion: {proveedor.direccion}{' '}
                         </Card.Text>
                         <Card.Text> Telefono: {proveedor.telefono1} </Card.Text>
                         <Card.Text> Telefono: {proveedor.telefono2} </Card.Text>
+                        <Card.Text> Email: {proveedor.mail} </Card.Text>
                         <Card.Text> Descripcion: {proveedor.msg_description} </Card.Text>
                         <ColorIconosStyled>
                         <Card.Text><Icon className="fac fab fa-telegram-plane"></Icon> <a href={proveedor.telegram} target="_blank"> {proveedor.telegram}</a> </Card.Text>

@@ -23,6 +23,7 @@ import Homeviews from './views/HomeViews';
 import CardView from './views/CardView';
 import DataEmprendedorView from './views/DataEmprendedorView';
 import { DataClienteView } from './views/DataClienteView';
+import AcercaDeViews from './views/AcercaDeView';
 
 function App() {
     return (
@@ -32,8 +33,8 @@ function App() {
                 <Route path="/" exact>
                     <Homeviews />
                 </Route>
-                <Route path="/conocenos" exact>
-                    {/* <Conocenos /> */}
+                <Route path="/acerca de" exact>
+                    <AcercaDeViews/>
                 </Route>
                 <Route path="/contacto" exact>
                     <ContactoViews />
