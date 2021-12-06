@@ -6,8 +6,7 @@ import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from '../src/assets/Styles/GlobalStyles.jsx';
 
-// Axios.defaults.baseURL = 'http://localhost:4000';
-Axios.defaults.baseURL = 'http://servicioslocales.osoqui.com/';
+Axios.defaults.baseURL = 'http://localhost:4000';
 
 ReactDOM.render(
     <React.StrictMode>
