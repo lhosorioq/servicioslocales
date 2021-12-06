@@ -34,6 +34,7 @@ const ServiceCardStyled = styled.div`
             font-size: 1.6rem;
             padding: 1rem 0;
             position: relative;
+            font-family: 'Raleway', sans-serif;
             &::after{
                 content: "";
                 width: 4rem;

@@ -33,7 +33,7 @@ const ServiceCardStyled = styled.div`
             font-size: 2rem;
             padding: 1rem 0;
             position: relative;
-            font-family: 'Montserrat Alternates', sans-serif;
+            font-family: 'Raleway', sans-serif;
 
             &::after{
                 content: "";
@@ -52,6 +52,7 @@ const ServiceCardStyled = styled.div`
             padding: 1rem 0;
             font-size: 1.5rem;
             font-family: 'Raleway', sans-serif;
+            
     }
     
 `;

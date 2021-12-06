@@ -22,8 +22,10 @@ const ContactItemStyled = styled.div`
     display: flex;
     align-items: center;
     box-shadow: 0 0 5px rgb(0 0 0 / 95%);
+    font-family: 'Raleway', sans-serif;
     &:not(:last-child){
         margin-bottom: 2.5rem;
+
     }
     .left-content{
         padding: 1.5rem;
@@ -33,6 +35,7 @@ const ContactItemStyled = styled.div`
         align-items: center;
         justify-content: center;
         margin-right: 1.5rem;
+        font-family: 'Raleway', sans-serif;
         svg{
             font-size: 2.3rem;
         }
@@ -43,7 +46,9 @@ const ContactItemStyled = styled.div`
             color: var(--);
             font-size: 1.2rem;
             padding-bottom: .6rem;
+            
         }
+
         p{
             padding: .1rem 0;
         }

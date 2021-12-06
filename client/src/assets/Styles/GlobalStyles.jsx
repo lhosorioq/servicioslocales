@@ -65,11 +65,12 @@ h1{
     font-size: 4rem;
 
     color: var(--gris-oscuro);
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Raleway', sans-serif;
 
     span{
         font-size: 4rem;
         color: #000000;
+        /* font-family: 'Raleway', sans-serif; */
         @media screen and (max-width: 502px){
             font-size: 3rem
         }
@@ -81,11 +82,21 @@ h1{
 
 span{
     color: var(--black-color);
+    
+    
 }
 h6{
     color: var(--blanco);
     font-size: 1.2rem;
     padding-bottom: .6rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2{
+    color: var(--negro);
+    font-size: 4rem;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
 }
 
 .contenedor{
