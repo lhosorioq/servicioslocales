@@ -87,7 +87,6 @@ const carga = async (values, file, departamento, ciudad) => {
         .catch((err) => {
             console.log(err);
         });
-    return 'emprendedores';
 };
 
 // Creacion de options para selects
@@ -100,7 +99,7 @@ const options = (item, i) => (
 export const RegistroClientComp = () => {
     const [file, setFile] = useState({ name: '' });
     const [departamento, setDepartamento] = useState('Departamentos');
-    const [ciudad, setCiudad] = useState('Ciudades');
+    const [ciudad, setCiudad] = useState('');
     const [show, setShow] = useState(false);
 
     // Close modal
@@ -239,6 +238,7 @@ export const RegistroClientComp = () => {
                                     type="text"
                                     placeholder="Ciudades"
                                     onChange={(e) => setCiudad(e.target.value)}
+                                    required
                                 >
                                     {Ciudades[
                                         Departamentos.indexOf(departamento)

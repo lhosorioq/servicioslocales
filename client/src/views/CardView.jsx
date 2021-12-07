@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { Container, Card, Row, Col, Button } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { URL } from '../libs/url';
 
+import {MainLayout} from '../assets/Styles/Layouts'
 import styled from 'styled-components';
 
 import Icon from '../components/Icons/Icons';
@@ -94,7 +95,7 @@ function CardView() {
 
     if (proveedor) {
         return (
-            <Container>
+            <MainLayout>
                 <h1>{proveedor.nombre}</h1>
                 <FuenteH3Styled>
                     <h3>{proveedor.msg_description}</h3>
@@ -237,14 +238,14 @@ function CardView() {
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </MainLayout>
         );
     }
 
     return (
-        <Container>
+        <MainLayout>
             <h1>Esperando</h1>
-        </Container>
+        </MainLayout>
     );
 }
 

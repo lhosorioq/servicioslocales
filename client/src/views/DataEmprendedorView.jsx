@@ -4,7 +4,6 @@ import Axios from 'axios';
 import {
     Card,
     Col,
-    Container,
     Row,
     ProgressBar,
     Modal,
@@ -14,6 +13,7 @@ import DataEmprendedorComp from '../components/proveedor/DataEmprendedorComp';
 import Title from '../components/Titulos/Title';
 import Swal from 'sweetalert2';
 import { URL } from '../libs/url';
+import { MainLayout } from '../assets/Styles/Layouts';
 
 function DataEmprendedorView() {
     const [emprendedor, setEmprendedor] = useState(null);
@@ -88,8 +88,8 @@ function DataEmprendedorView() {
 
     if (emprendedor) {
         return (
-            <>
-                <Container>
+            
+                <MainLayout>
                     <Row>
                         <Title
                             title={'Datos Proveedor'}
@@ -171,8 +171,8 @@ function DataEmprendedorView() {
                             </Button>
                         </Modal.Footer>
                     </Modal>
-                </Container>
-            </>
+                </MainLayout>
+        
         );
     }
     return (

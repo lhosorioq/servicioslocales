@@ -4,6 +4,7 @@ import CardsComp from '../components/card/CardsComp';
 import { ProgressBar } from 'react-bootstrap';
 import SearchComp from '../components/busquedaFiltro/SearchComp';
 import Home from '../components/Home/Home'
+import { MainLayout } from '../assets/Styles/Layouts';
 
 
 function HomeView() {
@@ -51,9 +52,9 @@ function HomeView() {
                 <SearchComp
                     loadProveedores={(item) => loadProveedores(item)}
                 />
-                <div style={{ minHeight: '1000px' }}>
+                <MainLayout>
                     <CardsComp data={emprendedores} />
-                </div>
+                </MainLayout>
             </>
         );
     }

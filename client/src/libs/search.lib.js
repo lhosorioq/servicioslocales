@@ -16,9 +16,8 @@ export const Categorias = [
     'Control de Plagas',
     'Lavanderia',
     'Electricistas',
-    'Abogados'
+    'Abogados',
 ];
-
 
 export const Departamentos2 = [
     'DEPARTAMENTOS',
@@ -57,9 +56,7 @@ export const Departamentos2 = [
 ];
 
 export const Ciudades = [
-    ['Ciudades'],
     [
-        'Ciudades',
         'LETICIA',
         'EL ENCANTO',
         'LA CHORRERA',
@@ -73,7 +70,6 @@ export const Ciudades = [
         'TARAPACA',
     ],
     [
-        'Ciudades',
         'ABEJORRAL',
         'ABRIAQUI',
         'ALEJANDRIA',
@@ -201,7 +197,6 @@ export const Ciudades = [
         'ZARAGOZA',
     ],
     [
-        'Ciudades',
         'ARAUCA',
         'ARAUQUITA',
         'CRAVO NORTE',
@@ -211,7 +206,6 @@ export const Ciudades = [
         'TAME',
     ],
     [
-        'Ciudades',
         'BARANOA',
         'BARRANQUILLA',
         'CAMPO DE LA CRUZ',
@@ -237,7 +231,6 @@ export const Ciudades = [
         'USIACURI',
     ],
     [
-        'Ciudades',
         'ACHI',
         'ALTOS DEL ROSARIO',
         'ARENAL',
@@ -285,7 +278,6 @@ export const Ciudades = [
         'ZAMBRANO',
     ],
     [
-        'Ciudades',
         'ALMEIDA',
         'AQUITANIA',
         'ARCABUCO',
@@ -411,7 +403,6 @@ export const Ciudades = [
         'ZETAQUIRA',
     ],
     [
-        'Ciudades',
         'AGUADAS',
         'ANSERMA',
         'ARANZAZU',
@@ -441,7 +432,6 @@ export const Ciudades = [
         'VITERBO',
     ],
     [
-        'Ciudades',
         'ALBANIA',
         'BELEN DE LOS ANDAQUIES',
         'CARTAGENA DEL CHAIRA',
@@ -460,7 +450,6 @@ export const Ciudades = [
         'VALPARAISO',
     ],
     [
-        'Ciudades',
         'AGUAZUL',
         'CHAMEZA',
         'HATO COROZAL',
@@ -482,7 +471,6 @@ export const Ciudades = [
         'YOPAL',
     ],
     [
-        'Ciudades',
         'ALMAGUER',
         'ARGELIA',
         'BALBOA',
@@ -526,7 +514,6 @@ export const Ciudades = [
         'VILLA RICA',
     ],
     [
-        'Ciudades',
         'AGUACHICA',
         'AGUSTIN CODAZZI',
         'ASTREA',
@@ -554,7 +541,6 @@ export const Ciudades = [
         'VALLEDUPAR',
     ],
     [
-        'Ciudades',
         'ACANDI',
         'ALTO BAUDO',
         'ATRATO',
@@ -587,7 +573,6 @@ export const Ciudades = [
         'UNION PANAMERICANA',
     ],
     [
-        'Ciudades',
         'AYAPEL',
         'BUENAVISTA',
         'CANALETE',
@@ -618,7 +603,6 @@ export const Ciudades = [
         'VALENCIA',
     ],
     [
-        'Ciudades',
         'AGUA DE DIOS',
         'ALBAN',
         'ANAPOIMA',
@@ -737,7 +721,6 @@ export const Ciudades = [
         'ZIPAQUIRA',
     ],
     [
-        'Ciudades',
         'BARRANCO MINA',
         'CACAHUAL',
         'INIRIDA',
@@ -749,7 +732,6 @@ export const Ciudades = [
         'SAN FELIPE',
     ],
     [
-        'Ciudades',
         'ALBANIA',
         'BARRANCAS',
         'DIBULLA',
@@ -766,15 +748,8 @@ export const Ciudades = [
         'URUMITA',
         'VILLANUEVA',
     ],
+    ['CALAMAR', 'EL RETORNO', 'MIRAFLORES', 'SAN JOSE DEL GUAVIARE'],
     [
-        'Ciudades',
-        'CALAMAR',
-        'EL RETORNO',
-        'MIRAFLORES',
-        'SAN JOSE DEL GUAVIARE',
-    ],
-    [
-        'Ciudades',
         'ACEVEDO',
         'AGRADO',
         'AIPE',
@@ -814,7 +789,6 @@ export const Ciudades = [
         'YAGUARA',
     ],
     [
-        'Ciudades',
         'ALGARROBO',
         'ARACATACA',
         'ARIGUANI',
@@ -847,7 +821,6 @@ export const Ciudades = [
         'ZONA BANANERA',
     ],
     [
-        'Ciudades',
         'ACACIAS',
         'BARRANCA DE UPIA',
         'CABUYARO',
@@ -879,7 +852,6 @@ export const Ciudades = [
         'VISTAHERMOSA',
     ],
     [
-        'Ciudades',
         'ABREGO',
         'ARBOLEDAS',
         'BOCHALEMA',
@@ -922,7 +894,6 @@ export const Ciudades = [
         'VILLA DEL ROSARIO',
     ],
     [
-        'Ciudades',
         'ALBAN',
         'ALDANA',
         'ANCUYA',
@@ -988,7 +959,6 @@ export const Ciudades = [
         'YACUANQUER',
     ],
     [
-        'Ciudades',
         'COLON',
         'MOCOA',
         'ORITO',
@@ -1004,7 +974,6 @@ export const Ciudades = [
         'VILLAGARZON',
     ],
     [
-        'Ciudades',
         'ARMENIA',
         'BUENAVISTA',
         'CALARCA',
@@ -1019,7 +988,6 @@ export const Ciudades = [
         'SALENTO',
     ],
     [
-        'Ciudades',
         'APIA',
         'BALBOA',
         'BELEN DE UMBRIA',
@@ -1035,9 +1003,8 @@ export const Ciudades = [
         'SANTA ROSA DE CABAL',
         'SANTUARIO',
     ],
-    ['Ciudades', 'PROVIDENCIA Y SANTA CATALINA', 'SAN ANDRES'],
+    ['PROVIDENCIA Y SANTA CATALINA', 'SAN ANDRES'],
     [
-        'Ciudades',
         'AGUADA',
         'ALBANIA',
         'ARATOCA',
@@ -1126,7 +1093,6 @@ export const Ciudades = [
         'ZAPATOCA',
     ],
     [
-        'Ciudades',
         'BUENAVISTA',
         'CAIMITO',
         'CHALAN',
@@ -1155,7 +1121,6 @@ export const Ciudades = [
         'TOLUVIEJO',
     ],
     [
-        'Ciudades',
         'ALPUJARRA',
         'ALVARADO',
         'AMBALEMA',
@@ -1205,7 +1170,6 @@ export const Ciudades = [
         'VILLARRICA',
     ],
     [
-        'Ciudades',
         'ALCALA',
         'ANDALUCIA',
         'ANSERMANUEVO',
@@ -1249,8 +1213,8 @@ export const Ciudades = [
         'YUMBO',
         'ZARZAL',
     ],
-    ['Ciudades', 'CARURU', 'MITU', 'PACOA', 'PAPUNAUA', 'TARAIRA', 'YAVARATE'],
-    ['Ciudades', 'CUMARIBO', 'LA PRIMAVERA', 'PUERTO CARRENO', 'SANTA ROSALIA'],
+    ['CARURU', 'MITU', 'PACOA', 'PAPUNAUA', 'TARAIRA', 'YAVARATE'],
+    ['CUMARIBO', 'LA PRIMAVERA', 'PUERTO CARRENO', 'SANTA ROSALIA'],
 ];
 
 export const Departamentos = [

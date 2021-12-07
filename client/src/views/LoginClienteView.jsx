@@ -49,7 +49,7 @@ function LoginClienteView() {
                     title={'Login Clientes'}
                     span={'Login Clientes'}
                 />
-                <LoginComp login={loginCliente} registro="block" rol='/registro-cliente'/>
+                <LoginComp login={loginCliente} registro="block" rol='/registrocliente'/>
             </Container>
         </MainLayout>
     );
