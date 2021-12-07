@@ -1,15 +1,19 @@
-import React from 'react'
-import  logo  from '../../assets/img/logosl.png'
-import {Link} from 'react-router-dom'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css'
+import React from 'react';
+import logo from '../../assets/img/logosl.png';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container, NavDropdown, Image, NavLink } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import {URL} from '../../libs/url'
 
 export default function NavbarComp() {
 
+    const id = sessionStorage.getItem('id')
+    const rol = sessionStorage.getItem('rol')
     const salir = () => {
         sessionStorage.clear();
-        window.location.href= '/'
+        window.location.href = '/';
     };
+    const img = sessionStorage.getItem('rol') === 'user' ? '/user/imagen/' : '/proveedor/imagen/';
 
     return (
         <>
@@ -24,7 +28,7 @@ export default function NavbarComp() {
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Brand as={Link} to={'/'}>
-                        <img src={logo} width="50" height="50" alt="" />
+                        <img src={logo} width="50" height="50" alt="" />{' '}Servicios Locales
                     </Navbar.Brand>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
@@ -75,35 +79,59 @@ export default function NavbarComp() {
                                 </NavDropdown.Item>
                             </NavDropdown>
 
-                            <NavDropdown title="Login" id="basic-nav-dropdown">
-                                <NavDropdown.Item
-                                    className="sl-navbar"
-                                    href="/loginempresa"
+                            {sessionStorage.getItem('token') ? null : (
+                                <NavDropdown
+                                    title="Login"
+                                    id="basic-nav-dropdown"
                                 >
-                                    Empresa/Persona
-                                </NavDropdown.Item>
-                                <NavDropdown.Item
-                                    className="sl-navbar"
-                                    href="/logincliente"
-                                >
-                                    Cliente
-                                </NavDropdown.Item>
-                                <NavDropdown.Item
-                                    className="sl-navbar"
-                                    href="/loginadmin"
-                                >
-                                    Administrador
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                                    <NavDropdown.Item
+                                        className="sl-navbar"
+                                        href="/loginempresa"
+                                    >
+                                        Empresa/Persona
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item
+                                        className="sl-navbar"
+                                        href="/logincliente"
+                                    >
+                                        Cliente
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item
+                                        className="sl-navbar"
+                                        href="/loginadmin"
+                                    >
+                                        Administrador
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                            )}
 
                             {sessionStorage.getItem('token') ? (
-                                <Nav.Link
-                                    as={Link}
-                                    onClick={() => salir()}
-                                    to={''}
-                                >
-                                    Salir
-                                </Nav.Link>
+                                <>
+                                    <Nav.Link
+                                        as={Link}
+                                        onClick={() => salir()}
+                                        to={''}
+                                    >
+                                        Salir
+                                    </Nav.Link>
+
+                                    <NavLink as={Link} to={rol === 'user'? '/cliente': rol === 'empresa'? '/proveedor': '/admin'}>
+                                        {sessionStorage.getItem('nombre')}
+                                    </NavLink>
+                                    {rol ===
+                                    'admin' ? null : (
+                                        <NavLink
+                                            as={Image}
+                                            roundedCircle
+                                            src={URL + img + id}
+                                            onClick={() => salir()}
+                                            to={''}
+                                            width={50}
+                                            height={50}
+                                            className="shadow"
+                                        />
+                                    )}
+                                </>
                             ) : null}
                         </Nav>
                     </Navbar.Collapse>
@@ -112,4 +140,3 @@ export default function NavbarComp() {
         </>
     );
 }
-

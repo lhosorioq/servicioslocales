@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Tabs, Tab, Container} from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
+import { MainLayout } from '../assets/Styles/Layouts';
 import TablaClientesComp from '../components/tablas/TablaClientesComp';
 import TablaEmprendedoresComp from '../components/tablas/TablaEmprendedoresComp';
 import TableAdministradoresCom from '../components/tablas/TableAdministradoresCom';
@@ -7,7 +8,7 @@ import TableAdministradoresCom from '../components/tablas/TableAdministradoresCo
 function AdminEmprendedoresView() {
     const [key, setKey] = useState('proveedores');
     return (
-        <Container>
+        <MainLayout>
             <Tabs
                 id="controlled-tab-example"
                 activeKey={key}
@@ -24,7 +25,7 @@ function AdminEmprendedoresView() {
                     <TableAdministradoresCom />
                 </Tab>
             </Tabs>
-        </Container>
+        </MainLayout>
     );
 }
 
