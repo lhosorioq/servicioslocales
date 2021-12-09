@@ -33,7 +33,7 @@ export const DataClienteView = () => {
                             window.location.href = '/';
                         }, 1500);
                     }
-                    setCliente(response.data);
+                    setCliente(response.data.register);
                 })
                 .catch((err) => {
                     console.log(err);

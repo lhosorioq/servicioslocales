@@ -19,7 +19,7 @@ function CardView() {
     const loadProveedor = async (param) => {
         await Axios.get(`/user/proveedor/${id}`)
             .then((response) => {
-                setProveedor(response.data);
+                setProveedor(response.data.register);
             })
             .catch((err) => {
                 console.log(err);

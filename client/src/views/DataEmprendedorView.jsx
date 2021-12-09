@@ -75,7 +75,7 @@ function DataEmprendedorView() {
                             window.location.href = '/';
                         }, 1500);
                     }
-                    setEmprendedor(response.data);
+                    setEmprendedor(response.data.register);
                 })
                 .catch((err) => {
                     console.log(err);
