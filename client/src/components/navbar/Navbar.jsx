@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown, Image, NavLink } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import {URL} from '../../libs/url'
+import '../../assets/css/App.css'
 
 export default function NavbarComp() {
 
@@ -83,10 +84,12 @@ export default function NavbarComp() {
                                 <NavDropdown
                                     title="Login"
                                     id="basic-nav-dropdown"
+                                    
                                 >
                                     <NavDropdown.Item
                                         className="sl-navbar"
                                         href="/loginempresa"
+                                        
                                     >
                                         Empresa/Persona
                                     </NavDropdown.Item>
@@ -140,3 +143,5 @@ export default function NavbarComp() {
         </>
     );
 }
+
+

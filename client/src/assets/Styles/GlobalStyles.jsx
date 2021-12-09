@@ -106,6 +106,8 @@ h2{
 .sl-navbar{
     background-color: var(--primario-claro) !important;
     font-size: 1rem !important;
+    z-index: 2;
+    
 }
 .sl-navbar a{
     color: #fafafa !important;
@@ -118,6 +120,7 @@ h2{
 .sl-navbar-search{
     background-color: var(--primario-oscuro) !important;
     font-size: 1rem !important;
+    z-index:1;
 }
 .sl-footer{
     background-color: var(--gris-oscuro) !important;
