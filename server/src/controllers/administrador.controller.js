@@ -18,6 +18,7 @@ export const createAdmin = async (req, res) => {
 
         if (name) {
             res.status(200).json({
+                auth: true,
                 mensaje: 'Ya existe una cuenta con este email de usuario',
             });
         } else {
@@ -40,10 +41,9 @@ export const createAdmin = async (req, res) => {
             });
         }
     } catch (error) {
-        return res.status(500).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(500)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -73,7 +73,7 @@ export const getAdminUserPass = async (req, res) => {
     }
 
     const token = jwt.sign({ id: admin._id }, config.secret, {
-        expiresIn: 60 * 60 * 2,
+        expiresIn: 60 * 60 * 2 ,
     });
 
     res.status(200).json({
@@ -90,14 +90,14 @@ export const getAdmin = async (req, res) => {
     try {
         const admins = await Admin.find();
         res.status(200).json({
+            auth: true,
             mensaje: 'Se encontraron administradores',
             admins,
         });
     } catch (error) {
-        return res.status(404).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(404)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -107,14 +107,14 @@ export const findAdminId = async (req, res) => {
         const _id = req.params.id;
         const response = await Admin.findById({ _id }).select('-password');
         res.status(200).json({
+            auth: true,
             mensaje: 'Se encontro administrador',
             response,
         });
     } catch (error) {
-        return res.status(404).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(404)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -140,20 +140,21 @@ export const updateAdmin = async (req, res) => {
         }).select('-password');
         if (!response) {
             return res.status(200).json({
+                auth: true,
                 mensaje: 'No se encontro administrador',
                 response,
             });
         }
         res.status(200).json({
+            auth: true,
             mensaje: 'Se modifico usuario correctamente',
             response,
         });
     } catch (error) {
         console.log(error);
-        return res.status(404).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(404)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -165,14 +166,17 @@ export const deleteAdmin = async (req, res) => {
         const response = await Admin.findByIdAndDelete({ _id });
         if (!response) {
             return res.status(404).json({
+                auth: true,
                 mensaje: 'No se encontro Administrador',
             });
         }
         res.status(200).json({
+            auth: true,
             mensaje: 'Administrador eliminado correctamente',
         });
     } catch (error) {
         return res.status(404).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -185,18 +189,19 @@ export const getEmprendedores = async (req, res) => {
         const response = await Emprendedor.find();
         if (!response) {
             return res.status(404).json({
+                auth: true,
                 mensaje: 'No se encontraron emprendedores',
             });
         }
         res.status(200).json({
+            auth: true,
             mensaje: 'Se encontraron emprendedores',
             response,
         });
     } catch (error) {
-        return res.status(404).json({
-            mensaje: 'Ocurio un error',
-            error,
-        });
+        return res
+            .status(404)
+            .json({ auth: true, mensaje: 'Ocurio un error', error });
     }
 };
 
@@ -305,10 +310,9 @@ export const updateEmprendedores = async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        return res.status(400).json({
-            mensaje: 'Ocurrio un error',
-            err,
-        });
+        return res
+            .status(400)
+            .json({ auth: true, mensaje: 'Ocurrio un error', err });
     }
 };
 
@@ -321,10 +325,11 @@ export const deleteEmprendedor = async (req, res) => {
         if (!response) {
             return res
                 .status(404)
-                .json({ mensaje: 'No se encontro emprendedor' });
+                .json({ auth: true, mensaje: 'No se encontro emprendedor' });
         }
 
         res.status(200).json({
+            auth: true,
             mensaje: 'Se elimino emprendedor',
             response,
         });

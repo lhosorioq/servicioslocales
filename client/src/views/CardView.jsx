@@ -4,7 +4,7 @@ import { Card, Row, Col, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { URL } from '../libs/url';
 
-import {MainLayout} from '../assets/Styles/Layouts'
+import { MainLayout } from '../assets/Styles/Layouts';
 import styled from 'styled-components';
 
 import Icon from '../components/Icons/Icons';
@@ -37,6 +37,19 @@ function CardView() {
                 headers: { Authorization: token },
             })
                 .then((response) => {
+                    const auth = response.data.auth;
+                    if (!auth) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: response.data.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        setTimeout(() => {
+                            sessionStorage.clear();
+                            window.location.href = '/';
+                        }, 1500);
+                    }
                     loadProveedor();
                     Swal.fire({
                         icon: 'success',
@@ -67,6 +80,19 @@ function CardView() {
                 headers: { Authorization: token },
             })
                 .then((response) => {
+                    const auth = response.data.auth;
+                    if (!auth) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: response.data.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        setTimeout(() => {
+                            sessionStorage.clear();
+                            window.location.href = '/';
+                        }, 1500);
+                    }
                     loadProveedor();
                     Swal.fire({
                         icon: 'success',
@@ -226,11 +252,11 @@ function CardView() {
                                     <Card.Text>
                                         <Icon className="inst fab fa-instagram"></Icon>{' '}
                                         <a
-                                            href={proveedor.onstagram}
+                                            href={proveedor.instagram}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {proveedor.onstagram}
+                                            {proveedor.instagram}
                                         </a>{' '}
                                     </Card.Text>
                                 </ColorIconosStyled>

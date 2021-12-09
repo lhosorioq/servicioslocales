@@ -3,8 +3,7 @@ import jwt from 'jsonwebtoken';
 import config from '../config';
 import path from 'path';
 
-import { Categorias, Departamentos, Ciudades } from '../lib/search.lib'
-
+import { Categorias, Departamentos, Ciudades } from '../lib/search.lib';
 
 //Crear Usuario
 export const createUsuario = async (req, res) => {
@@ -19,7 +18,7 @@ export const createUsuario = async (req, res) => {
             telefono,
         } = req.body;
 
-        let avatar
+        let avatar;
 
         if (req.file) {
             const data = req.file.buffer;
@@ -120,12 +119,11 @@ export const getUsuarioId = async (req, res) => {
         const register = await Usuario.findOne({ _id }, { avatar: 0 }).select(
             '-password'
         );
-        res.json(register);
+        res.json({ auth: true, register });
     } catch (error) {
-        return res.status(400).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(400)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -134,10 +132,12 @@ export const getUsuariosAll = async (req, res) => {
     try {
         const usuarios = await Usuario.find({}, { avatar: 0 });
         res.status(200).json({
+            auth: true,
             usuarios: usuarios,
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -203,10 +203,8 @@ export const updateUsuario = async (req, res) => {
         if (usuario.ciudad !== '') body['ciudad'] = usuario.ciudad;
         if (usuario.departamento !== '')
             body['departamento'] = usuario.departamento;
-        if (usuario.direccion !== '')
-            body['direccion'] = usuario.direccion;
-        if (usuario.telefono !== '')
-            body['telefono'] = usuario.telefono;
+        if (usuario.direccion !== '') body['direccion'] = usuario.direccion;
+        if (usuario.telefono !== '') body['telefono'] = usuario.telefono;
         body['avatar'] = usuario.avatar;
     } else {
         const usuario = new Usuario({
@@ -229,10 +227,8 @@ export const updateUsuario = async (req, res) => {
         if (usuario.ciudad !== '') body['ciudad'] = usuario.ciudad;
         if (usuario.departamento !== '')
             body['departamento'] = usuario.departamento;
-        if (usuario.direccion !== '')
-            body['direccion'] = usuario.direccion;
-        if (usuario.telefono !== '')
-            body['telefono'] = usuario.telefono;
+        if (usuario.direccion !== '') body['direccion'] = usuario.direccion;
+        if (usuario.telefono !== '') body['telefono'] = usuario.telefono;
     }
 
     try {
@@ -259,12 +255,11 @@ export const deleteUsuario = async (req, res) => {
         const response = await Usuario.findByIdAndDelete({ _id });
 
         if (!response) {
-            return res
-                .status(404)
-                .json({ mensaje: 'No se encontro usuario' });
+            return res.status(404).json({ mensaje: 'No se encontro usuario' });
         }
 
         res.status(200).json({
+            auth: true,
             mensaje: 'Se elimino usuario',
         });
     } catch (error) {
@@ -280,20 +275,19 @@ export const logoutUsuario = async (req, res) => {
     res.status(200).send({ auth: false, token: null });
 };
 
-
 // Exportar lib
 export const libs = (req, res) => {
-    res.status(200).send({ Categorias, Ciudades, Departamentos})
-}
+    res.status(200).send({ Categorias, Ciudades, Departamentos });
+};
 
-// Terminos y condiciones 
+// Terminos y condiciones
 export const terminos = async (req, res) => {
     const options = {
-        root: path.join(__dirname), 
+        root: path.join(__dirname),
     };
 
     const fileName = 'TERMINOS_Y_CONDICIONES.png';
-    
+
     res.sendFile(fileName, options, function (err) {
         if (err) {
             console.log(err);
@@ -301,5 +295,4 @@ export const terminos = async (req, res) => {
             console.log('Sent:', fileName);
         }
     });
-
 };

@@ -15,7 +15,7 @@ import {
 import * as Yup from 'yup';
 import Icon from '../Icons/Icons';
 import InputFiles from 'react-input-files';
-import {Departamentos, Ciudades } from '../../libs/search.lib';
+import { Departamentos, Ciudades } from '../../libs/search.lib';
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
     nombre: Yup.string()
@@ -45,19 +45,13 @@ const options = (item, i) => (
 );
 
 const DataClienteComp = (props) => {
-    const { cliente, loadCliente,} = props;
+    const { cliente, loadCliente } = props;
     const [file, setFile] = useState({ name: '' });
     const [departamento, setDepartamento] = useState(cliente.departamento);
     const [ciudad, setCiudad] = useState(cliente.ciudad);
 
     const carga = async (values) => {
-        const {
-            nombre,
-            telefono,
-            email,
-            password,
-            direccion,
-        } = values;
+        const { nombre, telefono, email, password, direccion } = values;
 
         const data = new FormData();
         data.append('avatar', file);
@@ -84,6 +78,10 @@ const DataClienteComp = (props) => {
                         showConfirmButton: false,
                         timer: 1500,
                     });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
                 } else {
                     Swal.fire({
                         icon: 'success',

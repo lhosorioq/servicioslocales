@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import Swal from 'sweetalert2';
 import { Col, Row, Card, CardImg, ProgressBar } from 'react-bootstrap';
 
 import { URL } from '../libs/url';
@@ -19,6 +20,19 @@ export const DataClienteView = () => {
                 headers: { Authorization: token },
             })
                 .then((response) => {
+                    const auth = response.data.auth;
+                    if (!auth) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: response.data.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        setTimeout(() => {
+                            sessionStorage.clear();
+                            window.location.href = '/';
+                        }, 1500);
+                    }
                     setCliente(response.data);
                 })
                 .catch((err) => {

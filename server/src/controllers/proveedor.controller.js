@@ -28,9 +28,7 @@ export const createProveedor = async (req, res) => {
         } = req.body;
 
         const data = req.file.buffer;
-        // const data = req.body.img; // Postman
         const contentType = req.file.mimetype;
-        // const contentType = req.body.img.type; //Postman
         const img = { data, contentType };
 
         const proveedor = new Proveedor({
@@ -81,10 +79,9 @@ export const createProveedor = async (req, res) => {
         }
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(500)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -96,12 +93,11 @@ export const getProveedorId = async (req, res) => {
         const register = await Proveedor.findOne({ _id }, { img: 0 }).select(
             '-password'
         );
-        res.json(register);
+        res.json({ auth: true, register });
     } catch (error) {
-        return res.status(400).json({
-            mensaje: 'Ocurrio un error',
-            error,
-        });
+        return res
+            .status(400)
+            .json({ auth: true, mensaje: 'Ocurrio un error', error });
     }
 };
 
@@ -116,10 +112,12 @@ export const likes = async (req, res) => {
             new: true,
         });
         return res.json({
+            auth: true,
             mensaje: 'Like Actualizado',
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -137,10 +135,12 @@ export const doesnotlikes = async (req, res) => {
             new: true,
         });
         return res.json({
+            auth: true,
             mensaje: 'Like Actualizado',
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -203,10 +203,12 @@ export const getProveedoresFilter = async (req, res) => {
             { img: 0 }
         );
         res.status(200).json({
+            auth: true,
             proveedores: proveedores,
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -243,8 +245,6 @@ export const updateProveedor = async (req, res) => {
         telefono2,
         actividad,
         msg_description,
-        likes,
-        doesnotlikes,
         telegram,
         whatsapp,
         twitter,
@@ -257,9 +257,7 @@ export const updateProveedor = async (req, res) => {
 
     if (req.file) {
         const data = req.file.buffer;
-        // const data = req.body.img; // Postman
         const contentType = req.file.mimetype;
-        // const contentType = req.body.img.type; //Postman
         const img = { data, contentType };
 
         const proveedor = new Proveedor({
@@ -273,8 +271,6 @@ export const updateProveedor = async (req, res) => {
             telefono2,
             actividad,
             msg_description,
-            likes,
-            doesnotlikes,
             telegram,
             whatsapp,
             twitter,
@@ -300,9 +296,6 @@ export const updateProveedor = async (req, res) => {
         if (proveedor.actividad !== '') body['actividad'] = proveedor.actividad;
         if (proveedor.msg_description !== '')
             body['msg_description'] = proveedor.msg_description;
-        if (proveedor.likes !== '') body['likes'] = proveedor.likes;
-        if (proveedor.doesnotlikes !== '')
-            body['doesnotlikes'] = proveedor.doesnotlikes;
         if (proveedor.telegram !== '') body['telegram'] = proveedor.telegram;
         if (proveedor.facebook !== '') body['facebook'] = proveedor.facebook;
         if (proveedor.whatsapp !== '') body['whatsapp'] = proveedor.whatsapp;
@@ -322,8 +315,6 @@ export const updateProveedor = async (req, res) => {
             telefono2,
             actividad,
             msg_description,
-            likes,
-            doesnotlikes,
             telegram,
             whatsapp,
             twitter,
@@ -347,9 +338,6 @@ export const updateProveedor = async (req, res) => {
         if (proveedor.actividad !== '') body['actividad'] = proveedor.actividad;
         if (proveedor.msg_description !== '')
             body['msg_description'] = proveedor.msg_description;
-        if (proveedor.likes !== '') body['likes'] = proveedor.likes;
-        if (proveedor.doesnotlikes !== '')
-            body['doesnotlikes'] = proveedor.doesnotlikes;
         if (proveedor.telegram !== '') body['telegram'] = proveedor.telegram;
         if (proveedor.facebook !== '') body['facebook'] = proveedor.facebook;
         if (proveedor.whatsapp !== '') body['whatsapp'] = proveedor.whatsapp;
@@ -368,6 +356,7 @@ export const updateProveedor = async (req, res) => {
         });
     } catch (err) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             err,
         });
@@ -383,6 +372,7 @@ export const getProveedorAll = async (req, res) => {
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -394,10 +384,12 @@ export const getProveedoresVisibles = async (req, res) => {
     try {
         const proveedores = await Proveedor.find({ visible: true }, { img: 0 });
         res.status(200).json({
+            auth: true,
             proveedores: proveedores,
         });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
@@ -430,14 +422,13 @@ export const deleteProveedor = async (req, res) => {
         if (!response) {
             return res
                 .status(404)
-                .json({ mensaje: 'No se encontro proveedor' });
+                .json({ auth: true, mensaje: 'No se encontro proveedor' });
         }
 
-        res.status(200).json({
-            mensaje: 'Se elimino proveedor',
-        });
+        res.status(200).json({ auth: true, mensaje: 'Se elimino proveedor' });
     } catch (error) {
         return res.status(400).json({
+            auth: true,
             mensaje: 'Ocurrio un error',
             error,
         });
