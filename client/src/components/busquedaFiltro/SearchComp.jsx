@@ -14,7 +14,7 @@ function SearchComp(props) {
 
     const [actividad, setActividad] = useState('Categorias');
     const [departamento, setDepartamento] = useState('Departamentos');
-    const [ciudad, setCiudad] = useState('Ciudades');
+    const [ciudad, setCiudad] = useState('');
     const [nombre, setNombre] = useState('');
 
     // Boton Buscar
@@ -45,13 +45,14 @@ function SearchComp(props) {
     );
     return (
         <>
-            <Navbar className="sl-navbar-search"
+            <Navbar
+                className="sl-navbar-search"
                 collapseOnSelect
                 expand="lg"
                 bg="info"
                 variant="dark"
                 sticky="top"
-                style={{top: '70px'}}
+                style={{ top: '70px' }}
             >
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

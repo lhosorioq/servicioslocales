@@ -89,6 +89,14 @@ function TablaClientesComp() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    alerta(response.data.mensaje, 'error');
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 setClientes(response.data.usuarios);
                 handleClose();
             })
@@ -105,7 +113,16 @@ function TablaClientesComp() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    alerta(response.data.mensaje, 'error');
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 alerta(response.data.mensaje, 'success');
+                loadClientes();
             })
             .catch((err) => {
                 console.log(err);
@@ -123,8 +140,8 @@ function TablaClientesComp() {
         const datos = {
             nodes: clientes.filter(
                 (item) =>
-                    (item.nombre.toLowerCase().includes(search.toLowerCase()) ||
-                    item.ciudad.toLowerCase().includes(search.toLowerCase()))
+                    item.nombre.toLowerCase().includes(search.toLowerCase()) ||
+                    item.ciudad.toLowerCase().includes(search.toLowerCase())
             ),
         };
 

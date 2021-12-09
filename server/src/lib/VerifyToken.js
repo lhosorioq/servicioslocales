@@ -13,7 +13,15 @@ export async function verifyToken (req, res, next) {
         req.userId = decoded.id; // req.uderId = decoded.id
         next();
     } catch (error) {
-        res.status(401).json({
+
+        if (error.message === 'jwt expired') {
+            return res.status(200).json({
+                auth: false,
+                token: null,
+                mensaje: 'Su sesion a finalizado',
+            });
+        }
+        res.status(200).json({
             aut: false,
             mensaje: 'No se ha proporcionado un token valido'
         })

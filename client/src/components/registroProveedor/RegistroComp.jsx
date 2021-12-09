@@ -99,9 +99,10 @@ const carga = async (values, file, departamento, ciudad) => {
                 console.log(response);
                 const token = response.data.token;
                 const id = response.data.id;
+                sessionStorage.clear();
                 sessionStorage.setItem('token', token);
                 sessionStorage.setItem('id', id);
-                sessionStorage.setItem('rol', 'empresa')
+                sessionStorage.setItem('rol', 'empresa');
                 window.location.href = '/proveedor'; //pendiente ruta de pagina a la que pasara despues de login
 
                 Swal.fire({
@@ -126,8 +127,8 @@ const options = (item, i) => (
 
 export const RegistroComp = () => {
     const [file, setFile] = useState({ name: '' });
-    const [departamento, setDepartamento] = useState('Departamentos');
-    const [ciudad, setCiudad] = useState('Ciudades');
+    const [departamento, setDepartamento] = useState('AMAZONAS');
+    const [ciudad, setCiudad] = useState('');
     const [show, setShow] = useState(false);
 
     // Close modal
@@ -296,7 +297,18 @@ export const RegistroComp = () => {
                                 >
                                     {Ciudades[
                                         Departamentos.indexOf(departamento)
-                                    ].map((item, i) => options(item, i))}
+                                    ].map((item, i) =>
+                                        options(
+                                            item === 'Ciudades'
+                                                ? Ciudades[
+                                                    Departamentos.indexOf(
+                                                        departamento
+                                                    )
+                                                ][1]
+                                                : item,
+                                            i
+                                        )
+                                    )}
                                 </Field>
                                 {touched.ciudad && errors.ciudad && (
                                     <div>{errors.ciudad}</div>

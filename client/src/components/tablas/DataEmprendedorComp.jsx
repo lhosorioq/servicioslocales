@@ -100,6 +100,10 @@ const DataEmprendedorComp = (props) => {
                         showConfirmButton: false,
                         timer: 1500,
                     });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
                 } else {
                     Swal.fire({
                         icon: 'success',
@@ -114,7 +118,6 @@ const DataEmprendedorComp = (props) => {
             .catch((err) => {
                 console.log(err);
             });
-        return 'emprendedores';
     };
 
     return (

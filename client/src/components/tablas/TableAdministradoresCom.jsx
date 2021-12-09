@@ -42,6 +42,19 @@ function TableAdministradoresCom() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 alerta(response.data.mensaje, 'success');
             })
             .catch((err) => {
@@ -63,6 +76,19 @@ function TableAdministradoresCom() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 alerta(response.data.mensaje, 'success');
             })
             .catch((err) => {
@@ -90,6 +116,19 @@ function TableAdministradoresCom() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 setAdmins(response.data.admins);
             })
             .catch((err) => {
@@ -106,6 +145,19 @@ function TableAdministradoresCom() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 alerta(response.data.mensaje, 'success');
             })
             .catch((err) => {

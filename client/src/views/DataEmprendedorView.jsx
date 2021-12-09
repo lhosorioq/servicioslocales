@@ -34,6 +34,19 @@ function DataEmprendedorView() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 setEmprendedor(response.data);
             })
             .catch((err) => {
@@ -49,6 +62,19 @@ function DataEmprendedorView() {
                 headers: { Authorization: token },
             })
                 .then((response) => {
+                    const auth = response.data.auth;
+                    if (!auth) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: response.data.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        setTimeout(() => {
+                            sessionStorage.clear();
+                            window.location.href = '/';
+                        }, 1500);
+                    }
                     setEmprendedor(response.data);
                 })
                 .catch((err) => {
@@ -68,6 +94,19 @@ function DataEmprendedorView() {
             headers: { Authorization: token },
         })
             .then((response) => {
+                const auth = response.data.auth;
+                if (!auth) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: response.data.mensaje,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(() => {
+                        sessionStorage.clear();
+                        window.location.href = '/';
+                    }, 1500);
+                }
                 Swal.fire({
                     icon: 'success',
                     title: response.data.mensaje,
