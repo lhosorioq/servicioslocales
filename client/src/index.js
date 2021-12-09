@@ -6,8 +6,8 @@ import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from '../src/assets/Styles/GlobalStyles.jsx';
 
-// Axios.defaults.baseURL = 'https://servicios-locales.herokuapp.com';
-Axios.defaults.baseURL = 'http://localhost:4000/';
+Axios.defaults.baseURL = 'https://servicios-locales.herokuapp.com';
+// Axios.defaults.baseURL = 'http://localhost:4000/';
 
 ReactDOM.render(
     <React.StrictMode>
