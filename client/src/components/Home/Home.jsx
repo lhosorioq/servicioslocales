@@ -98,8 +98,8 @@ const Home = () => {
                 </Titulo>
                 <Descripcion>
                     Creemos que la conexión entre usarios y proveedores de
-                    servicios es importante. Lo que conectamos a lo que
-                    necesitas
+                    servicios es importante. Le conectamos a lo que
+                    necesita, rapido y preciso.
                 </Descripcion>
                 <Informacion>
                     <Button
