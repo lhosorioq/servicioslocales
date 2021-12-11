@@ -16,6 +16,13 @@ export const Categorias = [
     'Control de Plagas',
     'Lavanderia',
     'Electricistas',
+    'Reparaciones Tecnicas',
+    'Peluqerias',
+    'Estilistas',
+    'Barber Shop',
+    'Esteticistas',
+    'Fisioterapeutas',
+    'Desayunos y Meriendas',
     'Abogados',
 ];
 

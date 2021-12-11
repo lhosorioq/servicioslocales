@@ -96,7 +96,6 @@ const carga = async (values, file, departamento, ciudad) => {
                     timer: 1500,
                 });
             } else {
-                console.log(response);
                 const token = response.data.token;
                 const id = response.data.id;
                 sessionStorage.clear();
